@@ -1,0 +1,6 @@
+#ifndef GAMEGRAPHICLIBRARY_LIBRARY_H
+#define GAMEGRAPHICLIBRARY_LIBRARY_H
+
+void hello();
+
+#endif
