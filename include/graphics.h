@@ -10,14 +10,14 @@
 #include <fstream>
 #include <utility>
 #include <vector>
-#include <GLEW/include/GL/glew.h>
+#include <GLEW/glew/include/GL/glew.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include <GLFW/glfw3.h>
+#include <GLFW/glfw/include/GLFW/glfw3.h>
 
-auto CreateMonitor();
-GLFWwindow * initializate();
-void key_callback(GLFWwindow * window,int key,int scancode,int action,int mode);
+void construct();
+GLFWwindow * createMonitor(const char * title);
+GLFWwindow * createWindow(const char * title);
 
 
 

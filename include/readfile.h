@@ -12,11 +12,6 @@
 #include <vector>
 using namespace std;
 
-size_t findSymbol(shared_ptr<std::vector<char>> buffer,size_t i);
-
-string getDataFromFile(shared_ptr<vector<char>> & buffer,size_t & i);
-
-shared_ptr<vector<char>> readFile();
-
+vector<string> readFile(string nameFile);
 
 #endif //GAMEGRAPHICLIBRARY_READFILE_H
