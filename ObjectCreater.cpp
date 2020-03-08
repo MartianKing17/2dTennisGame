@@ -20,8 +20,19 @@ ObjectCreater::ObjectCreater(const ObjectCreater &other)
     this->vao=other.vao;
     this->vbo=other.vbo;
     this->ebo=other.ebo;
+
     this->texName=other.texName;
     this->texture=other.texture;
+    this->init = other.init;
+
+    this->a = other.a;
+    this->b = other.b;
+    this->c = other.c;
+
+    this->sx = other.sx;
+    this->sy = other.sy;
+    this->sz = other.sz;
+
     int sizeVertices= sizeof(this->vertices)/ sizeof(GLuint),sizeIndex= sizeof(this->indices)/ sizeof(GLuint);
 
     for (int i = 0; i < sizeVertices; ++i)
@@ -40,8 +51,19 @@ ObjectCreater::ObjectCreater(ObjectCreater &&other)noexcept
     this->vao=other.vao;
     this->vbo=other.vbo;
     this->ebo=other.ebo;
+
     this->texName=other.texName;
     this->texture=other.texture;
+    this->init = other.init;
+
+    this->a = other.a;
+    this->b = other.b;
+    this->c = other.c;
+
+    this->sx = other.sx;
+    this->sy = other.sy;
+    this->sz = other.sz;
+
     int sizeVertices= sizeof(this->vertices)/ sizeof(GLuint),sizeIndex= sizeof(this->indices)/ sizeof(GLuint);
 
     for (int i = 0; i < sizeVertices; ++i)
@@ -56,11 +78,21 @@ ObjectCreater::ObjectCreater(ObjectCreater &&other)noexcept
         }
     }
 
-    other.vao=0;
-    other.vbo=0;
-    other.ebo=0;
-    other.texName.clear();
-    other.texture=0;
+    other.vao = 0;
+    other.vbo = 0;
+    other.ebo = 0;
+
+    other.texName = "";
+    other.texture = 0;
+    other.init = false;
+
+    other.a = 0;
+    other.b = 0;
+    other.c = 0;
+
+    other.sx = 0;
+    other.sy = 0;
+    other.sz = 0;
 }
 
 ObjectCreater & ObjectCreater::operator=(const ObjectCreater &other)
@@ -68,8 +100,19 @@ ObjectCreater & ObjectCreater::operator=(const ObjectCreater &other)
     this->vao=other.vao;
     this->vbo=other.vbo;
     this->ebo=other.ebo;
+
     this->texName=other.texName;
     this->texture=other.texture;
+    this->init = other.init;
+
+    this->a = other.a;
+    this->b = other.b;
+    this->c = other.c;
+
+    this->sx = other.sx;
+    this->sy = other.sy;
+    this->sz = other.sz;
+
     int sizeVertices= sizeof(this->vertices)/ sizeof(GLuint),sizeIndex= sizeof(this->indices)/ sizeof(GLuint);
 
     for (int i = 0; i < sizeVertices; ++i)
@@ -90,8 +133,19 @@ ObjectCreater & ObjectCreater::operator=(ObjectCreater &&other)noexcept
     this->vao=other.vao;
     this->vbo=other.vbo;
     this->ebo=other.ebo;
+
     this->texName=other.texName;
     this->texture=other.texture;
+    this->init = other.init;
+
+    this->a = other.a;
+    this->b = other.b;
+    this->c = other.c;
+
+    this->sx = other.sx;
+    this->sy = other.sy;
+    this->sz = other.sz;
+
     int sizeVertices= sizeof(this->vertices)/ sizeof(GLuint),sizeIndex= sizeof(this->indices)/ sizeof(GLuint);
 
     for (int i = 0; i < sizeVertices; ++i)
@@ -106,11 +160,22 @@ ObjectCreater & ObjectCreater::operator=(ObjectCreater &&other)noexcept
         }
     }
 
-    other.vao=0;
-    other.vbo=0;
-    other.ebo=0;
-    other.texName.clear();
-    other.texture=0;
+    other.vao = 0;
+    other.vbo = 0;
+    other.ebo = 0;
+
+    other.texName = "";
+    other.texture = 0;
+    other.init = false;
+
+    other.a = 0;
+    other.b = 0;
+    other.c = 0;
+
+    other.sx = 0;
+    other.sy = 0;
+    other.sz = 0;
+
     return *this;
 }
 
@@ -217,8 +282,8 @@ float * ObjectCreater::get_matrix_scale()
 
 std::array<std::pair<double, double>, 3> * ObjectCreater::return_model_coor()
 {
-    const size_t len = 4;
-    std::array<std::pair<double, double>, 3> * model_coordinate = new std::array<std::pair<double, double>, 3>();
+    const size_t len = 3;
+    auto * model_coordinate = new std::array<std::pair<double, double>, 3>();
     std::pair<double,double> point_coordinate;
 
     for (int i = 0, j = 0; j < len; i+=8, j++)

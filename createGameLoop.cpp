@@ -9,10 +9,11 @@
 using namespace std;
 using namespace chrono;
 
-BaseGameObject * createBall(GLFWwindow * window)
+BaseGameObject *createBall(GLFWwindow *window)
 {
     vector<GLfloat> startPosition;
     string objectInfo[3];
+    bool ball_forward = false;
     float val_mat_translate[3] = {0.,0.,1.};
     float val_mat_scale[3] = {0.03,0.03,0.};
     objectInfo[0]="texture/platform_var1(crop).png";
@@ -31,7 +32,7 @@ BaseGameObject * createBall(GLFWwindow * window)
     creater.initializate();
     creater.set_matrix_translate(val_mat_translate[0], val_mat_translate[1], val_mat_translate[2]);
     creater.set_matrix_scale(val_mat_scale[0], val_mat_scale[1],val_mat_scale[2]);
-    return new Ball(creater, window, shader, false);
+    return new Ball(creater, window, shader, ball_forward);
 }
 
 BaseGameObject *createPlatform(GLFWwindow *window, bool *motionSet)
@@ -73,42 +74,68 @@ void render(BaseGameObject *ball, BaseGameObject *platform, glm::mat4 model)
     platform->render();
 }
 
-bool check_torch(BaseGameObject * ball,BaseGameObject * platform)
+bool check_touch(Ball * ball,Platform * platform)
 {
-    auto pos_ball = ball->return_position();
-    auto pos_platform = platform->return_position();
 
-    /*
-    if(pos_ball.second == pos_platform.second)
+    if((ball->getVerticalPlace() - ball->getRadius()) == (platform->getVerticalPlace() - platform->getRadius()))
     {
-        return true;
+        ball->setSpeed();
     }
-     */
+    else if((ball->getVerticalPlace() - ball->getRadius()) == 1)
+    {
+        ball->setSpeed();
+    }
+    else if((ball->getVerticalPlace() - ball->getRadius()) == -1)
+    {
+        return false;
+    }
 
-    return false;
+    if((ball->getGorizontalPlace() - ball->getRadius()) == 1)
+    {
+        ball->setSpeed();
+    }
+    else if((ball->getGorizontalPlace() - ball->getRadius()) == -1)
+    {
+        ball->setSpeed();
+    }
+
+    return true;
 }
 
-void mainloop(BaseGameObject * ball,BaseGameObject * platform,GLFWwindow * window)
+void mainloop(BaseGameObject *ball, BaseGameObject *platform, GLFWwindow *window, bool &isSpaceActive)
 {
     glm::mat4 model=glm::mat4(1.f);
     double delta_time = 0.;
     system_clock::time_point timer = system_clock::now();
-    int k = 0;
-
 
     while (!glfwWindowShouldClose(window))
     {
 
+        glfwPollEvents();
+
         delta_time = duration_cast<milliseconds>(system_clock::now() - timer).count();
 
-
-        if(delta_time < 16 * 100)
+        if(delta_time < 16 * 2)
         {
             continue;
         }
 
+        render(ball, platform, model);
 
-        glfwPollEvents();
+        if(!isSpaceActive)
+        {
+            glfwSwapBuffers(window);
+            continue;
+        }
+
+        /*
+        if(!check_touch(ball,platform))
+        {
+            continue;
+        }
+        */
+
+        update(ball, platform);
 
         /*
         if(check_torch(ball, platform))
@@ -119,18 +146,10 @@ void mainloop(BaseGameObject * ball,BaseGameObject * platform,GLFWwindow * windo
         {
             ball_forward = false;
         }
-         */
+        */
 
-
-        update(ball, platform);
-        render(ball, platform, model);
-
-        //if(k <= 2) //fuc*ing code
-        //{
-            glfwSwapBuffers(window);
-        //    k++;
-        //}
 
         timer = system_clock::now();
+        glfwSwapBuffers(window);
     }
 }

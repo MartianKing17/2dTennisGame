@@ -6,21 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/maxim/CppProjects/GameProject/2dTennisGame/Ball.cpp
-Ball.h
-/home/maxim/CppProjects/GameProject/2dTennisGame/Ball.h
-
 /home/maxim/CppProjects/GameProject/2dTennisGame/Ball.h
 BaseGameObject.h
 /home/maxim/CppProjects/GameProject/2dTennisGame/BaseGameObject.h
 utility
 -
-
-/home/maxim/CppProjects/GameProject/2dTennisGame/BaseGameObject.cpp
-vector
--
-BaseGameObject.h
-/home/maxim/CppProjects/GameProject/2dTennisGame/BaseGameObject.h
 
 /home/maxim/CppProjects/GameProject/2dTennisGame/BaseGameObject.h
 array
@@ -44,10 +34,6 @@ vector
 utility
 -
 
-/home/maxim/CppProjects/GameProject/2dTennisGame/ObjectCreater.cpp
-ObjectCreater.h
-/home/maxim/CppProjects/GameProject/2dTennisGame/ObjectCreater.h
-
 /home/maxim/CppProjects/GameProject/2dTennisGame/ObjectCreater.h
 array
 -
@@ -63,10 +49,6 @@ vector
 -
 string
 -
-
-/home/maxim/CppProjects/GameProject/2dTennisGame/Platform.cpp
-Platform.h
-/home/maxim/CppProjects/GameProject/2dTennisGame/Platform.h
 
 /home/maxim/CppProjects/GameProject/2dTennisGame/Platform.h
 utility
@@ -93,14 +75,6 @@ Platform.h
 /home/maxim/CppProjects/GameProject/2dTennisGame/Platform.h
 ObjectCreater.h
 /home/maxim/CppProjects/GameProject/2dTennisGame/ObjectCreater.h
-
-/home/maxim/CppProjects/GameProject/2dTennisGame/filedata.h
-string
--
-vector
--
-include/readfile.h
-/home/maxim/CppProjects/GameProject/2dTennisGame/include/readfile.h
 
 /home/maxim/CppProjects/GameProject/2dTennisGame/include/SOIL.h
 
@@ -1570,25 +1544,5 @@ GL/gl.h
 GL/glu.h
 -
 GLFW/glfw/include/GLFW/glfw3.h
--
-
-/home/maxim/CppProjects/GameProject/2dTennisGame/include/readfile.h
-iostream
--
-memory
--
-fstream
--
-utility
--
-vector
--
-
-/home/maxim/CppProjects/GameProject/2dTennisGame/main.cpp
-filedata.h
-/home/maxim/CppProjects/GameProject/2dTennisGame/filedata.h
-createGameLoop.h
-/home/maxim/CppProjects/GameProject/2dTennisGame/createGameLoop.h
-memory
 -
 

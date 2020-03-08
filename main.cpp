@@ -8,7 +8,7 @@
 
 using namespace std;
 
-bool state[2]={false};
+bool state[3]={false};
 
 void key_callback(GLFWwindow * window,int key,int scancode,int action,int mode)
 {
@@ -37,7 +37,13 @@ void key_callback(GLFWwindow * window,int key,int scancode,int action,int mode)
 
         state[1]=true;
     }
-
+    else if((key==GLFW_KEY_SPACE) && action == GLFW_PRESS)
+    {
+        if(state[2] == false)
+        {
+            state[2] = true;
+        }
+    }
 }
 
 void resize (GLFWwindow * window, int w, int h)
@@ -66,13 +72,12 @@ GLFWwindow * createDisplay(vector<string> fileData)
 
 
 /*
- Задания:
-     * поправить размерность массива
-     * вернуть текстуры
-     * сделать плавное движение платформы
-     * сделать плавное движение шарика
-     * отбивания шарика от платформа и стенок
- */
+ TODO:
+     * The
+     * make the platform move smoothly
+     * make the ball move smoothly
+     * realizy the ball beating off the platform and the walls
+*/
 
 int main()
 {
@@ -83,7 +88,7 @@ int main()
     ball = createBall(window);
     platform = createPlatform(window, state);
     glfwSetKeyCallback(window, key_callback);
-    mainloop(ball,platform,window);
+    mainloop(ball, platform, window,state[2]);
     glfwDestroyWindow(window);
     glfwTerminate();
     return 0;

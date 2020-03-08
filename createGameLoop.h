@@ -11,10 +11,10 @@
 #include "Platform.h"
 #include "ObjectCreater.h"
 
-BaseGameObject * createBall(GLFWwindow * window);
+BaseGameObject *createBall(GLFWwindow *window);
 
 BaseGameObject *createPlatform(GLFWwindow *window, bool *motionSet);
 
-void mainloop(BaseGameObject * ball,BaseGameObject * platform,GLFWwindow * window);
+void mainloop(BaseGameObject *ball, BaseGameObject *platform, GLFWwindow *window, bool &isSpaceActive);
 
 #endif //INC_2DTENNISGAME_CREATEGAMELOOP_H

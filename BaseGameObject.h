@@ -21,6 +21,7 @@ class BaseGameObject
 protected:
     std::array<std::pair<double,double>, 3> * obj_coordinate_projection;
     GLint modelCoor;
+    float cx, cy, radius; //Central x, central,y and radius
     float a,b,c; //Object matrix + a = x + a, Obj. mat. + b = y + b, Obj. mat. + c = z + c
     float sx,sy,sz;// Object matrix * sx = x * sx, Obj. mat. * sy = y * sy, Obj. mat. * sz = z * sz
     GLuint vbo, vao, ebo;
@@ -40,6 +41,9 @@ public:
     void set_matrix_scale(float sx, float sy, float sz);
     void render(); //Render position place and drawing paint
     virtual void update() = 0; //Update position data
+    float getVerticalPlace();
+    float getGorizontalPlace();
+    float getRadius();
     std::array<std::pair<double, double>, 3> return_position();
     virtual ~BaseGameObject();
 };

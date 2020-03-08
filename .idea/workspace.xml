@@ -14,8 +14,21 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc884d46-593c-4f0a-88ba-238f45b9dd0c" name="Default Changelist" comment="" />
+    <list default="true" id="cc884d46-593c-4f0a-88ba-238f45b9dd0c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ball.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseGameObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BaseGameObject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseGameObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/BaseGameObject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ObjectCreater.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectCreater.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/2dTennisGame" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/2dTennisGame" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createGameLoop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/createGameLoop.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createGameLoop.h" beforeDir="false" afterPath="$PROJECT_DIR$/createGameLoop.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+    </list>
     <list id="3b13156d-e57d-4979-9869-090e0b2198c8" name="Revert &quot;Add timer and make better code&quot;" comment="Revert &quot;Add timer and make better code&quot;&#10;&#10;This reverts commit cf7b2b79" />
+    <list id="6c91c447-fb33-43fd-8083-9ed3536fc8e9" name="Revert &quot;Add timer and make better code&quot;-2" comment="Revert &quot;Add timer and make better code&quot;&#10;&#10;This reverts commit bd67fd42" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +85,7 @@
           <entry type="LOCAL">
             <value>
               <list>
-                <branch-info repo="$PROJECT_DIR$" source="beta_1" />
+                <branch-info repo="$PROJECT_DIR$" source="work_with_mechanic" />
               </list>
             </value>
           </entry>
@@ -81,8 +94,8 @@
     </favorite-branches>
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="Maxim &lt;maxim_kovalevsky@protonmail.com&gt;" />
         <option value="Maxim Kovalevsky &lt;maxim_kovalevsky@protonmail.com&gt;" />
+        <option value="Maxim &lt;maxim_kovalevsky@protonmail.com&gt;" />
       </list>
     </option>
     <option name="PUSH_TAGS">
@@ -93,7 +106,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="beta_1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -237,7 +250,7 @@
       <workItem from="1581536070970" duration="3290000" />
       <workItem from="1581950068131" duration="18461000" />
       <workItem from="1583599352627" duration="1387000" />
-      <workItem from="1583664211598" duration="7105000" />
+      <workItem from="1583664211598" duration="13732000" />
     </task>
     <task id="LOCAL-00001" summary="The first project commit">
       <created>1558522713282</created>
@@ -281,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583670447224</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Revert &quot;Add timer and make better code&quot;&#10;&#10;This reverts commit bd67fd42">
+      <created>1583671522302</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1583671522302</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -377,17 +397,18 @@
     <MESSAGE value="Make better architecture!!!" />
     <MESSAGE value="fixup! Add timer and make better code" />
     <MESSAGE value="Add timer and make better code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add timer and make better code" />
+    <MESSAGE value="Revert &quot;Add timer and make better code&quot;&#10;&#10;This reverts commit bd67fd42" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;Add timer and make better code&quot;&#10;&#10;This reverts commit bd67fd42" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="59" width="800" height="684" key="#Notifications" timestamp="1583668914878">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="278" y="59" width="800" height="684" key="#Notifications/0.27.1366.741@0.27.1366.741" timestamp="1583668914878" />
-    <state x="277" y="27" width="935" height="741" key="CommitChangelistDialog2" timestamp="1583671429028">
+    <state x="277" y="27" width="935" height="741" key="CommitChangelistDialog2" timestamp="1583671519778">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="277" y="27" width="935" height="741" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1583671429028" />
+    <state x="277" y="27" width="935" height="741" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1583671519778" />
     <state x="324" y="157" width="942" height="919" key="CommitChangelistDialog2/0.27.1600.1173@0.27.1600.1173" timestamp="1581972421852" />
     <state x="127" y="90" width="1092" height="629" key="DiffContextDialog" timestamp="1583669504395">
       <screen x="0" y="27" width="1366" height="741" />
@@ -413,45 +434,45 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state width="1320" height="211" key="GridCell.Tab.-1.right/0.27.1366.741@0.27.1366.741" timestamp="1581536542511" />
-    <state width="1320" height="144" key="GridCell.Tab.0.bottom" timestamp="1583668933787">
+    <state width="1320" height="144" key="GridCell.Tab.0.bottom" timestamp="1583694968898">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="144" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1583668933787" />
+    <state width="1320" height="144" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1583694968898" />
     <state width="1554" height="380" key="GridCell.Tab.0.bottom/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750733" />
-    <state width="1320" height="144" key="GridCell.Tab.0.center" timestamp="1583668933786">
+    <state width="1320" height="144" key="GridCell.Tab.0.center" timestamp="1583694968897">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="144" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1583668933786" />
+    <state width="1320" height="144" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1583694968897" />
     <state width="1554" height="380" key="GridCell.Tab.0.center/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750732" />
-    <state width="1320" height="144" key="GridCell.Tab.0.left" timestamp="1583668933786">
+    <state width="1320" height="144" key="GridCell.Tab.0.left" timestamp="1583694968896">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="144" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1583668933786" />
+    <state width="1320" height="144" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1583694968896" />
     <state width="1554" height="380" key="GridCell.Tab.0.left/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750732" />
-    <state width="1320" height="144" key="GridCell.Tab.0.right" timestamp="1583668933787">
+    <state width="1320" height="144" key="GridCell.Tab.0.right" timestamp="1583694968897">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="144" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1583668933787" />
+    <state width="1320" height="144" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1583694968897" />
     <state width="1554" height="380" key="GridCell.Tab.0.right/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750733" />
-    <state width="1320" height="210" key="GridCell.Tab.1.bottom" timestamp="1583667883048">
+    <state width="1320" height="210" key="GridCell.Tab.1.bottom" timestamp="1583694021656">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1583667883048" />
+    <state width="1320" height="210" key="GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1583694021656" />
     <state width="1554" height="380" key="GridCell.Tab.1.bottom/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750735" />
-    <state width="1320" height="210" key="GridCell.Tab.1.center" timestamp="1583667883047">
+    <state width="1320" height="210" key="GridCell.Tab.1.center" timestamp="1583694021655">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741" timestamp="1583667883047" />
+    <state width="1320" height="210" key="GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741" timestamp="1583694021655" />
     <state width="1554" height="380" key="GridCell.Tab.1.center/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750734" />
-    <state width="1320" height="210" key="GridCell.Tab.1.left" timestamp="1583667883047">
+    <state width="1320" height="210" key="GridCell.Tab.1.left" timestamp="1583694021655">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741" timestamp="1583667883047" />
+    <state width="1320" height="210" key="GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741" timestamp="1583694021655" />
     <state width="1554" height="380" key="GridCell.Tab.1.left/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750734" />
-    <state width="1320" height="210" key="GridCell.Tab.1.right" timestamp="1583667883048">
+    <state width="1320" height="210" key="GridCell.Tab.1.right" timestamp="1583694021656">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741" timestamp="1583667883048" />
+    <state width="1320" height="210" key="GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741" timestamp="1583694021656" />
     <state width="1554" height="380" key="GridCell.Tab.1.right/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750734" />
     <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.bottom" timestamp="1581536722692">
       <screen x="0" y="27" width="1366" height="741" />
@@ -489,10 +510,10 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="526" y="314" width="303" height="174" key="VCS.ChangelistChooser/0.27.1366.741@0.27.1366.741" timestamp="1583671452009" />
-    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1583671382408">
+    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1583671796261">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.741@0.27.1366.741" timestamp="1583671382408" />
+    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.741@0.27.1366.741" timestamp="1583671796261" />
     <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1583669937162">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
@@ -521,19 +542,19 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="389" y="243" width="588" height="316" key="git4idea.ui.GitTagDialog/0.27.1366.741@0.27.1366.741" timestamp="1583666585709" />
-    <state x="500" y="49" width="501" height="720" key="refactoring.ChangeSignatureDialog" timestamp="1581971976718">
-      <screen x="0" y="27" width="1600" height="1173" />
+    <state x="427" y="27" width="501" height="699" key="refactoring.ChangeSignatureDialog" timestamp="1583693179557">
+      <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="427" y="41" width="501" height="720" key="refactoring.ChangeSignatureDialog/0.27.1366.741@0.27.1366.741" timestamp="1581538590055" />
+    <state x="427" y="27" width="501" height="699" key="refactoring.ChangeSignatureDialog/0.27.1366.741@0.27.1366.741" timestamp="1583693179557" />
     <state x="500" y="49" width="501" height="720" key="refactoring.ChangeSignatureDialog/0.27.1600.1173@0.27.1600.1173" timestamp="1581971976718" />
     <state x="464" y="282" key="run.anything.popup" timestamp="1581970662691">
       <screen x="0" y="27" width="1600" height="1173" />
     </state>
     <state x="464" y="282" key="run.anything.popup/0.27.1600.1173@0.27.1600.1173" timestamp="1581970662691" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1583667811272">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1583674880322">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1366.741@0.27.1366.741" timestamp="1583667811272" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1366.741@0.27.1366.741" timestamp="1583674880322" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

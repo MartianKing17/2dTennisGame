@@ -4,7 +4,7 @@
 
 #include "Ball.h"
 
-Ball::Ball(ObjectCreater object, GLFWwindow *mainwindow, Shader shader, bool ball_forward)
+Ball::Ball(ObjectCreater object, GLFWwindow *mainwindow, Shader shader, bool &ball_forward)
     : BaseGameObject(object, mainwindow,shader)
     ,verticalSpeed(0),gorizontalSpeed(0),ball_forward(ball_forward){}
 
@@ -22,6 +22,7 @@ void Ball::calcBallForwarding()
 
 void Ball::update()
 {
+
     if(!ball_forward)
     {
         b += -0.025f;
@@ -30,5 +31,10 @@ void Ball::update()
     {
         b += 0.025f;
     }
+}
+
+void Ball::setSpeed()
+{
+    return;
 }
 

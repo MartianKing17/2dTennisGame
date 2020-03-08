@@ -14,8 +14,9 @@ class Ball:public BaseGameObject
     void func();
     int verticalSpeed, gorizontalSpeed;
 public:
-    Ball(ObjectCreater object, GLFWwindow *mainwindow, Shader shader, bool ball_forward);
+    Ball(ObjectCreater object, GLFWwindow *mainwindow, Shader shader, bool &ball_forward);
     void update() override;
+    void setSpeed();
     void calcBallForwarding();
 };
 
