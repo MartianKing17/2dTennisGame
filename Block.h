@@ -8,7 +8,7 @@
 
 class Block
 {
-
+    /* smth code in the future*/
 };
 
 

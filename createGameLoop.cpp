@@ -15,7 +15,7 @@ BaseGameObject * createBall(GLFWwindow * window)
     string objectInfo[3];
     float val_mat_translate[3] = {0.,0.,1.};
     float val_mat_scale[3] = {0.03,0.03,0.};
-    //objectInfo[0]="texture/platform_var1(crop).png";
+    objectInfo[0]="texture/platform_var1(crop).png";
     objectInfo[1]="path/shaderPlatform.vs";
     objectInfo[2]="path/shaderFragPlatform.fragment";
 
@@ -40,7 +40,7 @@ BaseGameObject *createPlatform(GLFWwindow *window, bool *motionSet)
     string objectInfo[3];
     float val_mat_translate[3] = {0., -0.75, 1.};
     float val_mat_scale[3] = {0.25, 0.25, 0.};
-   // objectInfo[0]="texture/ball(crop).png";
+    objectInfo[0]="texture/ball(crop).png";
     objectInfo[1]="path/shaderBall.vs";
     objectInfo[2]="path/shaderFragBall.fragment";
 
@@ -67,7 +67,7 @@ void update(BaseGameObject *ball, BaseGameObject *platform)
 
 void render(BaseGameObject *ball, BaseGameObject *platform, glm::mat4 model)
 {
-    glClearColor(1.f, 0.f, 0.f, 1.f);
+    glClearColor(0.f, 0.f, 0.f, 1.f);
     glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
     ball->render();
     platform->render();
@@ -95,6 +95,7 @@ void mainloop(BaseGameObject * ball,BaseGameObject * platform,GLFWwindow * windo
     system_clock::time_point timer = system_clock::now();
     int k = 0;
 
+
     while (!glfwWindowShouldClose(window))
     {
 
@@ -118,7 +119,8 @@ void mainloop(BaseGameObject * ball,BaseGameObject * platform,GLFWwindow * windo
         {
             ball_forward = false;
         }
-        */
+         */
+
 
         update(ball, platform);
         render(ball, platform, model);
