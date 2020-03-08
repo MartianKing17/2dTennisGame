@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="2dTennisGame" targetName="2dTennisGame" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug-Linux" CONFIG_NAME="Debug" TOOLCHAIN_NAME="Linux" />
+      <configuration PROFILE_NAME="Release-Linux" CONFIG_NAME="Release" TOOLCHAIN_NAME="Linux" />
+      <configuration PROFILE_NAME="Debug-Windows" CONFIG_NAME="Debug" TOOLCHAIN_NAME="Windows" />
+      <configuration PROFILE_NAME="Release-Windows" CONFIG_NAME="Release" TOOLCHAIN_NAME="Windows" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cc884d46-593c-4f0a-88ba-238f45b9dd0c" name="Default Changelist" comment="" />
+    <list id="3b13156d-e57d-4979-9869-090e0b2198c8" name="Revert &quot;Add timer and make better code&quot;" comment="Revert &quot;Add timer and make better code&quot;&#10;&#10;This reverts commit cf7b2b79" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug-Linux" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CMakeLists.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>LEFT</find>
+      <find>CLAMP_TO_BORDER</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="beta_1" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Maxim &lt;maxim_kovalevsky@protonmail.com&gt;" />
+        <option value="Maxim Kovalevsky &lt;maxim_kovalevsky@protonmail.com&gt;" />
+      </list>
+    </option>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="YilZvECa" />
+  </component>
+  <component name="ProjectId" id="1Svfz862pY3klYkJD0WxN80JFlQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="Push.Settings">
+    <option name="SHOW_DETAILS_PANEL" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programm_project\C++_project\GameProject\2dTennisGame" />
+      <recent name="D:\Programm_project\C++_project\GameProject\2dTennisGame\include" />
+      <recent name="D:\Programm_project\C++_project\GameProject\2dTennisGame\bin" />
+    </key>
+  </component>
+  <component name="RunManager" selected="CMake Application.Debug">
+    <configuration name="2dTennisGame" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="2dTennisGame" TARGET_NAME="2dTennisGame" CONFIG_NAME="Debug-Linux" RUN_TARGET_PROJECT_NAME="2dTennisGame" RUN_TARGET_NAME="2dTennisGame">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Debug" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="2dTennisGame" TARGET_NAME="2dTennisGame" CONFIG_NAME="Debug-Linux" RUN_TARGET_PROJECT_NAME="2dTennisGame" RUN_TARGET_NAME="2dTennisGame">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.Debug" />
+      <item itemvalue="CMake Application.2dTennisGame" />
+    </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc884d46-593c-4f0a-88ba-238f45b9dd0c" name="Default Changelist" comment="" />
+      <created>1558513451578</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558513451578</updated>
+      <workItem from="1558513454427" duration="118000" />
+      <workItem from="1558513753473" duration="492000" />
+      <workItem from="1558521676014" duration="1828000" />
+      <workItem from="1558706363895" duration="1515000" />
+      <workItem from="1561988459221" duration="852000" />
+      <workItem from="1561989430850" duration="821000" />
+      <workItem from="1562058233507" duration="4528000" />
+      <workItem from="1562063597031" duration="378000" />
+      <workItem from="1562065327197" duration="4862000" />
+      <workItem from="1562138682666" duration="1425000" />
+      <workItem from="1562141559838" duration="5203000" />
+      <workItem from="1562151151150" duration="900000" />
+      <workItem from="1562152111460" duration="686000" />
+      <workItem from="1562152871004" duration="134000" />
+      <workItem from="1562153051133" duration="633000" />
+      <workItem from="1562153780951" duration="660000" />
+      <workItem from="1562160219589" duration="1383000" />
+      <workItem from="1562161658591" duration="7499000" />
+      <workItem from="1562161566876" duration="876000" />
+      <workItem from="1562233567776" duration="4204000" />
+      <workItem from="1562237858741" duration="1348000" />
+      <workItem from="1562314690160" duration="1059000" />
+      <workItem from="1562840064724" duration="13891000" />
+      <workItem from="1562928519876" duration="2044000" />
+      <workItem from="1563278759214" duration="9172000" />
+      <workItem from="1563289291495" duration="958000" />
+      <workItem from="1563535399985" duration="158000" />
+      <workItem from="1563535818080" duration="5986000" />
+      <workItem from="1563790470115" duration="10860000" />
+      <workItem from="1563871627558" duration="8247000" />
+      <workItem from="1563969176170" duration="4848000" />
+      <workItem from="1563985517242" duration="661000" />
+      <workItem from="1564658684829" duration="1911000" />
+      <workItem from="1564738202468" duration="13098000" />
+      <workItem from="1565003377318" duration="2430000" />
+      <workItem from="1565092395940" duration="1428000" />
+      <workItem from="1565164557322" duration="10249000" />
+      <workItem from="1565178200731" duration="6008000" />
+      <workItem from="1565255069525" duration="2423000" />
+      <workItem from="1568119863859" duration="31000" />
+      <workItem from="1570815749822" duration="746000" />
+      <workItem from="1570817039796" duration="1505000" />
+      <workItem from="1571398860977" duration="316000" />
+      <workItem from="1572449252894" duration="176000" />
+      <workItem from="1572451381280" duration="3368000" />
+      <workItem from="1573133187524" duration="1903000" />
+      <workItem from="1573136737212" duration="5095000" />
+      <workItem from="1573141901242" duration="5000" />
+      <workItem from="1573142653466" duration="414000" />
+      <workItem from="1573232396587" duration="773000" />
+      <workItem from="1573566417856" duration="16904000" />
+      <workItem from="1573584232749" duration="1115000" />
+      <workItem from="1573633281065" duration="251000" />
+      <workItem from="1573640340420" duration="1617000" />
+      <workItem from="1573644638919" duration="460000" />
+      <workItem from="1574956956210" duration="1230000" />
+      <workItem from="1581536070970" duration="3290000" />
+      <workItem from="1581950068131" duration="18461000" />
+      <workItem from="1583599352627" duration="1387000" />
+      <workItem from="1583664211598" duration="7105000" />
+    </task>
+    <task id="LOCAL-00001" summary="The first project commit">
+      <created>1558522713282</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1558522713283</updated>
+    </task>
+    <task id="LOCAL-00002" summary="More crossing- more money!">
+      <created>1573143027904</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573143027904</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Make better architecture!!!">
+      <created>1581972441503</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1581972441510</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add timer and make better code">
+      <created>1583668713751</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1583668713751</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixup! Add timer and make better code">
+      <created>1583670168832</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1583670168832</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add timer and make better code">
+      <created>1583670447224</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1583670447224</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="beta_1" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="beta_1" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="The first project commit" />
+    <MESSAGE value="More crossing- more money!" />
+    <MESSAGE value="Make better architecture!!!" />
+    <MESSAGE value="fixup! Add timer and make better code" />
+    <MESSAGE value="Add timer and make better code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add timer and make better code" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="278" y="59" width="800" height="684" key="#Notifications" timestamp="1583668914878">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="278" y="59" width="800" height="684" key="#Notifications/0.27.1366.741@0.27.1366.741" timestamp="1583668914878" />
+    <state x="277" y="27" width="935" height="741" key="CommitChangelistDialog2" timestamp="1583671429028">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="277" y="27" width="935" height="741" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1583671429028" />
+    <state x="324" y="157" width="942" height="919" key="CommitChangelistDialog2/0.27.1600.1173@0.27.1600.1173" timestamp="1581972421852" />
+    <state x="127" y="90" width="1092" height="629" key="DiffContextDialog" timestamp="1583669504395">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="127" y="90" width="1092" height="629" key="DiffContextDialog/0.27.1366.741@0.27.1366.741" timestamp="1583669504395" />
+    <state x="474" y="303" key="GitRewordDialog" timestamp="1583671472702">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="474" y="303" key="GitRewordDialog/0.27.1366.741@0.27.1366.741" timestamp="1583671472702" />
+    <state width="1320" height="211" key="GridCell.Tab.-1.bottom" timestamp="1581536542512">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="211" key="GridCell.Tab.-1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1581536542512" />
+    <state width="1320" height="211" key="GridCell.Tab.-1.center" timestamp="1581536542511">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="211" key="GridCell.Tab.-1.center/0.27.1366.741@0.27.1366.741" timestamp="1581536542511" />
+    <state width="1320" height="211" key="GridCell.Tab.-1.left" timestamp="1581536542511">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="211" key="GridCell.Tab.-1.left/0.27.1366.741@0.27.1366.741" timestamp="1581536542511" />
+    <state width="1320" height="211" key="GridCell.Tab.-1.right" timestamp="1581536542511">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="211" key="GridCell.Tab.-1.right/0.27.1366.741@0.27.1366.741" timestamp="1581536542511" />
+    <state width="1320" height="144" key="GridCell.Tab.0.bottom" timestamp="1583668933787">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="144" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1583668933787" />
+    <state width="1554" height="380" key="GridCell.Tab.0.bottom/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750733" />
+    <state width="1320" height="144" key="GridCell.Tab.0.center" timestamp="1583668933786">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="144" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1583668933786" />
+    <state width="1554" height="380" key="GridCell.Tab.0.center/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750732" />
+    <state width="1320" height="144" key="GridCell.Tab.0.left" timestamp="1583668933786">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="144" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1583668933786" />
+    <state width="1554" height="380" key="GridCell.Tab.0.left/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750732" />
+    <state width="1320" height="144" key="GridCell.Tab.0.right" timestamp="1583668933787">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="144" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1583668933787" />
+    <state width="1554" height="380" key="GridCell.Tab.0.right/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750733" />
+    <state width="1320" height="210" key="GridCell.Tab.1.bottom" timestamp="1583667883048">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="210" key="GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1583667883048" />
+    <state width="1554" height="380" key="GridCell.Tab.1.bottom/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750735" />
+    <state width="1320" height="210" key="GridCell.Tab.1.center" timestamp="1583667883047">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="210" key="GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741" timestamp="1583667883047" />
+    <state width="1554" height="380" key="GridCell.Tab.1.center/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750734" />
+    <state width="1320" height="210" key="GridCell.Tab.1.left" timestamp="1583667883047">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="210" key="GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741" timestamp="1583667883047" />
+    <state width="1554" height="380" key="GridCell.Tab.1.left/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750734" />
+    <state width="1320" height="210" key="GridCell.Tab.1.right" timestamp="1583667883048">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state width="1320" height="210" key="GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741" timestamp="1583667883048" />
+    <state width="1554" height="380" key="GridCell.Tab.1.right/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750734" />
+    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.bottom" timestamp="1581536722692">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.bottom/0.27.1366.741@0.27.1366.741" timestamp="1581536722692" />
+    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.center" timestamp="1581536722690">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.center/0.27.1366.741@0.27.1366.741" timestamp="1581536722690" />
+    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.left" timestamp="1581536722689">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.left/0.27.1366.741@0.27.1366.741" timestamp="1581536722689" />
+    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.right" timestamp="1581536722691">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.right/0.27.1366.741@0.27.1366.741" timestamp="1581536722691" />
+    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.bottom" timestamp="1581536716693">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.bottom/0.27.1366.741@0.27.1366.741" timestamp="1581536716693" />
+    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.center" timestamp="1581536716691">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.center/0.27.1366.741@0.27.1366.741" timestamp="1581536716691" />
+    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.left" timestamp="1581536716691">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.left/0.27.1366.741@0.27.1366.741" timestamp="1581536716691" />
+    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.right" timestamp="1581536716692">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.right/0.27.1366.741@0.27.1366.741" timestamp="1581536716692" />
+    <state x="526" y="314" width="303" height="174" key="VCS.ChangelistChooser" timestamp="1583671452009">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="526" y="314" width="303" height="174" key="VCS.ChangelistChooser/0.27.1366.741@0.27.1366.741" timestamp="1583671452009" />
+    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1583671382408">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.741@0.27.1366.741" timestamp="1583671382408" />
+    <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1583669937162">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.27.1366.741@0.27.1366.741" timestamp="1583669937162" />
+    <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1583666642639">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.27.1366.741@0.27.1366.741" timestamp="1583666642639" />
+    <state x="451" y="317" width="454" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583671398055">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="451" y="317" width="454" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1366.741@0.27.1366.741" timestamp="1583671398055" />
+    <state x="288" y="590" width="861" height="457" key="dock-window-1" timestamp="1581536732336">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="288" y="590" width="861" height="457" key="dock-window-1/0.27.1366.741@0.27.1366.741" timestamp="1581536732336" />
+    <state x="459" y="428" width="861" height="457" key="dock-window-2" timestamp="1581536749319">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="459" y="428" width="861" height="457" key="dock-window-2/0.27.1366.741@0.27.1366.741" timestamp="1581536749319" />
+    <state x="325" y="191" width="705" height="420" key="git4idea.merge.GitPullDialog" timestamp="1583671119750">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="325" y="191" width="705" height="420" key="git4idea.merge.GitPullDialog/0.27.1366.741@0.27.1366.741" timestamp="1583671119750" />
+    <state x="389" y="243" width="588" height="316" key="git4idea.ui.GitTagDialog" timestamp="1583666585709">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="389" y="243" width="588" height="316" key="git4idea.ui.GitTagDialog/0.27.1366.741@0.27.1366.741" timestamp="1583666585709" />
+    <state x="500" y="49" width="501" height="720" key="refactoring.ChangeSignatureDialog" timestamp="1581971976718">
+      <screen x="0" y="27" width="1600" height="1173" />
+    </state>
+    <state x="427" y="41" width="501" height="720" key="refactoring.ChangeSignatureDialog/0.27.1366.741@0.27.1366.741" timestamp="1581538590055" />
+    <state x="500" y="49" width="501" height="720" key="refactoring.ChangeSignatureDialog/0.27.1600.1173@0.27.1600.1173" timestamp="1581971976718" />
+    <state x="464" y="282" key="run.anything.popup" timestamp="1581970662691">
+      <screen x="0" y="27" width="1600" height="1173" />
+    </state>
+    <state x="464" y="282" key="run.anything.popup/0.27.1600.1173@0.27.1600.1173" timestamp="1581970662691" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1583667811272">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1366.741@0.27.1366.741" timestamp="1583667811272" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="dataFile" language="ObjectiveC" />
+        <watch expression="read" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

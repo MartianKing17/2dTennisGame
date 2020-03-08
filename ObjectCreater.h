@@ -22,7 +22,7 @@ class ObjectCreater
     GLfloat vertices[32];
     GLint indices[6];
     std::string texName;
-    void createTexture(std::string data); //Reading and initialize texture
+    void createTexture(std::string data);
     void initializateVao();
     void initializateVbo();
     void initializateEbo();
@@ -35,7 +35,7 @@ public:
     ObjectCreater & operator=(const ObjectCreater &other);
     ObjectCreater & operator=(ObjectCreater &&other) noexcept;
     void initializate();
-    bool isInitializate(); //Checking init for normal work
+    bool isInitializate();
     void set_matrix_translate(float a, float b, float c);
     void set_matrix_scale(float sx, float sy, float sz);
     float * get_matrix_translate();

@@ -1,0 +1,4 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_MAKE_PROGRAM=/usr/bin/make -DCMAKE_C_COMPILER=/usr/bin/x86_64-w64-mingw32-gcc -DCMAKE_CXX_COMPILER=/usr/bin/x86_64-w64-mingw32-g++ -G "CodeBlocks - Unix Makefiles" /home/maxim/CppProjects/GameProject/2dTennisGame
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/maxim/CppProjects/GameProject/2dTennisGame/cmake-build-release-windows
