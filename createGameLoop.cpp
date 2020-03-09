@@ -3,19 +3,65 @@
 //
 
 #include "createGameLoop.h"
-#include <chrono>
-#include <thread>
 
 using namespace std;
 using namespace chrono;
+
+list<Block> * createBlocks(GLFWwindow *window)
+{
+    const size_t blockSize = 30;
+    auto * blocks = new list<Block>();
+    vector<GLfloat> startPosition;
+    string objectInfo[3];
+    float a, b, c;
+    const float val_mat_scale[3] = {0.1,0.1,0};        // data special for block
+
+    objectInfo[0]="texture/met_cube(crop).png";           // block texture
+    objectInfo[1]="path/shaderPlatform.vs";               // block vs
+    objectInfo[2]="path/shaderFragPlatform.fragment";     // block fragment shader
+
+    Shader shader(objectInfo[1],objectInfo[2]);
+
+    startPosition.insert(startPosition.begin(),   {1.f,1.f,0.f,   1.f,0.f,0.f,  1.f, 1.f});
+    startPosition.insert(startPosition.begin()+8, {1.f,-1.f,0.f,  0.f,1.f,0.f,  1.f, 0.f});
+    startPosition.insert(startPosition.begin()+16,{-1.f,-1.f,0.f, 0.f,0.f,1.f,  0.f,0.f});
+    startPosition.insert(startPosition.begin()+24,{-1.f,1.f,0.f,  1.f,1.f,0.f,  0.f,1.f});
+
+
+    ObjectCreater creater(startPosition,objectInfo[0]);
+    creater.initializate();
+    creater.set_matrix_scale(val_mat_scale[0], val_mat_scale[1], val_mat_scale[2]);
+    Block * block;
+
+    a = -0.9;
+    b = -0.9;
+    c = 0.;
+
+    for (size_t i = 0; i < blockSize; ++i)
+    {
+        if(a == 1.1)
+        {
+            b -=0.2;
+            a = -0.9;
+        }
+
+        creater.set_matrix_translate(a, b, c);
+        block = new Block(creater, window, shader);
+        blocks->push_back(*block);
+        a += 0.2;
+    }
+
+    return blocks;
+}
+
 
 BaseGameObject *createBall(GLFWwindow *window)
 {
     vector<GLfloat> startPosition;
     string objectInfo[3];
     bool ball_forward = false;
-    float val_mat_translate[3] = {0.,0.,1.};
-    float val_mat_scale[3] = {0.03,0.03,0.};
+    const float val_mat_translate[3] = {0.,0.,1.};
+    const float val_mat_scale[3] = {0.03,0.03,0.};
     objectInfo[0]="texture/platform_var1(crop).png";
     objectInfo[1]="path/shaderPlatform.vs";
     objectInfo[2]="path/shaderFragPlatform.fragment";
@@ -39,8 +85,8 @@ BaseGameObject *createPlatform(GLFWwindow *window, bool *motionSet)
 {
     vector<GLfloat> startPosition;
     string objectInfo[3];
-    float val_mat_translate[3] = {0., -0.75, 1.};
-    float val_mat_scale[3] = {0.25, 0.25, 0.};
+    const float val_mat_translate[3] = {0., -0.75, 1.};
+    const float val_mat_scale[3] = {0.25, 0.25, 0.};
     objectInfo[0]="texture/ball(crop).png";
     objectInfo[1]="path/shaderBall.vs";
     objectInfo[2]="path/shaderFragBall.fragment";
@@ -64,17 +110,24 @@ void update(BaseGameObject *ball, BaseGameObject *platform)
 {
     ball->update();
     platform->update();
+
 }
 
-void render(BaseGameObject *ball, BaseGameObject *platform, glm::mat4 model)
+void render(BaseGameObject *ball, BaseGameObject *platform, list<Block> *blocks, glm::mat4 model)
 {
     glClearColor(0.f, 0.f, 0.f, 1.f);
     glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
     ball->render();
     platform->render();
+
+    for (auto iter = blocks->begin(); iter != blocks->end() ; iter++)
+    {
+        iter->render();
+    }
+
 }
 
-bool check_touch(Ball * ball,Platform * platform)
+bool check_touch(Ball *ball, Platform *platform, list<Block> *blocks)
 {
 
     if((ball->getVerticalPlace() - ball->getRadius()) == (platform->getVerticalPlace() - platform->getRadius()))
@@ -99,10 +152,20 @@ bool check_touch(Ball * ball,Platform * platform)
         ball->setSpeed();
     }
 
+    for (auto iter = blocks->begin(); iter != blocks->end() ; iter++)
+    {
+        if((ball->getVerticalPlace() + ball->getRadius()) == (iter->getVerticalPlace() - iter->getRadius()))
+        {
+            blocks->erase(iter);
+            ball->setSpeed();
+        }
+    }
+
     return true;
 }
 
-void mainloop(BaseGameObject *ball, BaseGameObject *platform, GLFWwindow *window, bool &isSpaceActive)
+void mainloop(BaseGameObject *ball, BaseGameObject *platform, list<Block> *blocks, GLFWwindow *window,
+              bool &isSpaceActive)
 {
     glm::mat4 model=glm::mat4(1.f);
     double delta_time = 0.;
@@ -120,34 +183,44 @@ void mainloop(BaseGameObject *ball, BaseGameObject *platform, GLFWwindow *window
             continue;
         }
 
-        render(ball, platform, model);
+        render(ball, platform, blocks, model);
 
         if(!isSpaceActive)
         {
+            timer = system_clock::now();
             glfwSwapBuffers(window);
             continue;
         }
 
         /*
-        if(!check_touch(ball,platform))
+        if(blocks->empty())
         {
-            continue;
+            //do smth
         }
         */
-
-        update(ball, platform);
 
         /*
-        if(check_torch(ball, platform))
+        if(!check_touch((Ball *) ball, (Platform *) platform, (list<Block> *)blocks))
         {
-            ball_forward = true;
-        }
-        else
-        {
-            ball_forward = false;
-        }
-        */
+            const float val_mat_translate_ball[3] = {0.,0.,1.};
+            const float val_mat_scale_ball[3] = {0.03,0.03,0.};
 
+            const float val_mat_translate_platform[3] = {0., -0.75, 1.};
+            const float val_mat_scale_platform[3] = {0.25, 0.25, 0.};
+
+            ball->set_matrix_translate(val_mat_translate_ball[0], val_mat_translate_ball[1], val_mat_translate_ball[2]);
+            ball->set_matrix_scale(val_mat_scale_ball[0], val_mat_scale_ball[1], val_mat_scale_ball[2]);
+
+            platform->set_matrix_translate(val_mat_translate_platform[0], val_mat_translate_platform[1],
+                                            val_mat_translate_platform[2]);
+            platform->set_matrix_scale(val_mat_scale_platform[0], val_mat_scale_platform[1], val_mat_scale_platform[2]);
+
+            isSpaceActive = false;
+        }
+         */
+
+
+        update(ball, platform);
 
         timer = system_clock::now();
         glfwSwapBuffers(window);

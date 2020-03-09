@@ -5,10 +5,21 @@
 #ifndef INC_2DTENNISGAME_BLOCK_H
 #define INC_2DTENNISGAME_BLOCK_H
 
+#include "BaseGameObject.h"
 
-class Block
+
+class Block:public BaseGameObject
 {
 
+public:
+    Block() = delete;
+    Block(ObjectCreater object, GLFWwindow *mainwindow, Shader shader);
+    Block(const Block & other);
+    Block(Block && other);
+    Block & operator =(const Block & other);
+    Block & operator =(Block && other) noexcept;
+    void update() override;
+    virtual ~Block() = default;
 };
 
 

@@ -5,6 +5,7 @@
 #include "filedata.h"
 #include "createGameLoop.h"
 #include <memory>
+#include <list>
 
 using namespace std;
 
@@ -73,22 +74,25 @@ GLFWwindow * createDisplay(vector<string> fileData)
 
 /*
  TODO:
-     * The
+     * debugging texture
+     * why blocks have not correct place
      * make the platform move smoothly
      * make the ball move smoothly
-     * realizy the ball beating off the platform and the walls
+     * realise the ball beating off the platform and the walls
 */
 
 int main()
 {
     BaseGameObject * ball=nullptr,* platform=nullptr;
+    list<Block> * blocks;
     vector<string> fileData=getClearDataFromFile();
     GLFWwindow * window=createDisplay(fileData);
     glfwSetFramebufferSizeCallback (window, resize);
     ball = createBall(window);
     platform = createPlatform(window, state);
+    blocks = createBlocks(window);
     glfwSetKeyCallback(window, key_callback);
-    mainloop(ball, platform, window,state[2]);
+    mainloop(ball, platform, blocks, window, state[2]);
     glfwDestroyWindow(window);
     glfwTerminate();
     return 0;

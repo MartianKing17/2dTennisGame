@@ -34,6 +34,10 @@ vector
 utility
 -
 
+/home/maxim/CppProjects/GameProject/2dTennisGame/Block.h
+BaseGameObject.h
+/home/maxim/CppProjects/GameProject/2dTennisGame/BaseGameObject.h
+
 /home/maxim/CppProjects/GameProject/2dTennisGame/ObjectCreater.h
 array
 -
@@ -59,20 +63,24 @@ BaseGameObject.h
 /home/maxim/CppProjects/GameProject/2dTennisGame/createGameLoop.cpp
 createGameLoop.h
 /home/maxim/CppProjects/GameProject/2dTennisGame/createGameLoop.h
-chrono
--
-thread
--
 
 /home/maxim/CppProjects/GameProject/2dTennisGame/createGameLoop.h
 include/graphics.h
 /home/maxim/CppProjects/GameProject/2dTennisGame/include/graphics.h
 vector
 -
+chrono
+-
+list
+-
+thread
+-
 Ball.h
 /home/maxim/CppProjects/GameProject/2dTennisGame/Ball.h
 Platform.h
 /home/maxim/CppProjects/GameProject/2dTennisGame/Platform.h
+Block.h
+/home/maxim/CppProjects/GameProject/2dTennisGame/Block.h
 ObjectCreater.h
 /home/maxim/CppProjects/GameProject/2dTennisGame/ObjectCreater.h
 
