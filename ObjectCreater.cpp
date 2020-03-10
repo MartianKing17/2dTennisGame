@@ -246,58 +246,59 @@ bool ObjectCreater::isInitializate()
     return init;
 }
 
-void ObjectCreater::set_matrix_translate(float a, float b, float c)
+void ObjectCreater::setMatrixTranslate(float a, float b, float c)
 {
     this->a = a;
     this->b = b;
     this->c = c;
 }
 
-void ObjectCreater::set_matrix_scale(float sx, float sy, float sz)
+void ObjectCreater::setMatrixScale(float sx, float sy, float sz)
 {
     this->sx = sx;
     this->sy = sy;
     this->sz = sz;
 }
 
-float * ObjectCreater::get_matrix_translate()
+float * ObjectCreater::getMatrixTranslate()
 {
     const size_t len = 3;
-    float * mat_translate = new float[len];
-    mat_translate[0] = a;
-    mat_translate[1] = b;
-    mat_translate[2] = c;
-    return mat_translate;
+    float * matTranslate = new float[len];
+    matTranslate[0] = a;
+    matTranslate[1] = b;
+    matTranslate[2] = c;
+    return matTranslate;
 }
 
-float * ObjectCreater::get_matrix_scale()
+float * ObjectCreater::getMatrixScale()
 {
     const size_t len = 3;
-    float * mat_scale = new float[len];
-    mat_scale[0] = sx;
-    mat_scale[1] = sy;
-    mat_scale[2] = sz;
-    return mat_scale;
+    float * matScale = new float[len];
+    matScale[0] = sx;
+    matScale[1] = sy;
+    matScale[2] = sz;
+    return matScale;
 }
 
-std::array<std::pair<double, double>, 3> * ObjectCreater::return_model_coor()
+double abs(double x)
 {
-    const size_t len = 3;
-    auto * model_coordinate = new std::array<std::pair<double, double>, 3>();
-    std::pair<double,double> point_coordinate;
+    if(x < 0)
+        x *= -1;
 
-    for (int i = 0, j = 0; j < len; i+=8, j++)
-    {
-            point_coordinate.first = vertices[i];
-            point_coordinate.second = vertices[i+1];
-            model_coordinate->at(j) = point_coordinate;
-    }
-
-    return model_coordinate;
-
+    return x;
 }
 
-std::array<GLuint,4> ObjectCreater::return_data()
+std::array<double, 3> ObjectCreater::returnModelLocCoor()
+{
+    std::array<double, 3> data;
+    const double len = (abs(vertices[0]) + abs(vertices[8])) / 2;
+    data[0] = vertices[0];
+    data[1] = vertices[8];
+    data[2] = len;
+    return data;
+}
+
+std::array<GLuint,4> ObjectCreater::returnData()
 {
     std::array<GLuint,4> data={vao,vbo,ebo,texture};
     return data;

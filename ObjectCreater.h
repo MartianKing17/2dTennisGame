@@ -36,12 +36,12 @@ public:
     ObjectCreater & operator=(ObjectCreater &&other) noexcept;
     void initializate();
     bool isInitializate();
-    void set_matrix_translate(float a, float b, float c);
-    void set_matrix_scale(float sx, float sy, float sz);
-    float * get_matrix_translate();
-    float * get_matrix_scale();
-    std::array<std::pair<double,double>, 3> * return_model_coor();
-    std::array<GLuint,4> return_data();
+    void setMatrixTranslate(float a, float b, float c);
+    void setMatrixScale(float sx, float sy, float sz);
+    float * getMatrixTranslate();
+    float * getMatrixScale();
+    std::array<double, 3> returnModelLocCoor();
+    std::array<GLuint,4> returnData();
     ~ObjectCreater()= default;
 };
 

@@ -33,7 +33,7 @@
 #include "../simd/platform.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
-// Build model
+// Build worldModel
 
 #if defined(__arch64__) || defined(__LP64__) || defined(_M_X64) || defined(__ppc64__) || defined(__x86_64__)
 #	define GLM_MODEL	GLM_MODEL_64

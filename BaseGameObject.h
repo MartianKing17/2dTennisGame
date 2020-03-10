@@ -19,7 +19,7 @@
 class BaseGameObject
 {
 protected:
-    std::array<std::pair<double,double>, 3> * obj_coordinate_projection;
+    std::pair<double,double> objProjCoor;
     GLint modelCoor;
     float cx, cy, radius; //Central x, central,y and radius
     float a,b,c; //Object matrix + a = x + a, Obj. mat. + b = y + b, Obj. mat. + c = z + c
@@ -29,22 +29,21 @@ protected:
     Shader shader;
     GLFWwindow * window;
     bool value;
-    glm::mat4 model;
+    glm::mat4 worldModel;
 public:
     BaseGameObject();
-    BaseGameObject(ObjectCreater object, GLFWwindow *mainwindow, Shader shader);
+    BaseGameObject(ObjectCreater object, GLFWwindow *mainWindow, Shader shader);
     BaseGameObject(const BaseGameObject & other);
     BaseGameObject(BaseGameObject && other);
     BaseGameObject & operator =(const BaseGameObject & other);
     BaseGameObject & operator =(BaseGameObject && other) noexcept;
-    void set_matrix_translate(float a, float b, float c);
-    void set_matrix_scale(float sx, float sy, float sz);
+    void setMatrixTranslate(float a, float b, float c);
+    void setMatrixScale(float sx, float sy, float sz);
     void render(); //Render position place and drawing paint
     virtual void update() = 0; //Update position data
     float getVerticalPlace();
     float getGorizontalPlace();
     float getRadius();
-    std::array<std::pair<double, double>, 3> return_position();
     virtual ~BaseGameObject();
 };
 

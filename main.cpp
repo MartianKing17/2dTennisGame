@@ -19,7 +19,7 @@ void key_callback(GLFWwindow * window,int key,int scancode,int action,int mode)
     }
 
 
-    if((key==GLFW_KEY_LEFT || key==GLFW_KEY_A)&& action ==GLFW_PRESS)
+    if((key==GLFW_KEY_LEFT || key==GLFW_KEY_A) && (action == GLFW_RELEASE)) // || action == GLFW_PRESS))
     {
         if(state[1])
         {
@@ -29,7 +29,7 @@ void key_callback(GLFWwindow * window,int key,int scancode,int action,int mode)
         state[0]=true;
     }
 
-    else if((key==GLFW_KEY_RIGHT || key==GLFW_KEY_D) && action == GLFW_PRESS)
+    else if((key==GLFW_KEY_RIGHT || key==GLFW_KEY_D) && (action == GLFW_RELEASE))// || action == GLFW_PRESS))
     {
         if(state[0])
         {
@@ -47,9 +47,9 @@ void key_callback(GLFWwindow * window,int key,int scancode,int action,int mode)
     }
 }
 
-void resize (GLFWwindow * window, int w, int h)
+void resize (GLFWwindow * window,int width, int height)
 {
-    glViewport(0,0,w,h);
+    glViewport(0, 0, width, height);
 }
 
 //Check setting. If "full" make full screen window, null not full screen
@@ -76,9 +76,9 @@ GLFWwindow * createDisplay(vector<string> fileData)
  TODO:
      * debugging texture
      * why blocks have not correct place
-     * make the platform move smoothly
-     * make the ball move smoothly
-     * realise the ball beating off the platform and the walls
+     * make the platform move smoothly +-
+     * make the ball move smoothly +-
+     * realise the ball beating off the platform and the walls +-
 */
 
 int main()

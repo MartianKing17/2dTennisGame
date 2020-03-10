@@ -13,39 +13,61 @@ BaseGameObject::BaseGameObject()
     modelCoor = glGetUniformLocation(shader.program,"model");
     window= nullptr;
     value=false;
-    obj_coordinate_projection = nullptr;
 }
 
-BaseGameObject::BaseGameObject(ObjectCreater object, GLFWwindow *mainwindow, Shader shader)
-                               :window(mainwindow),shader(shader),value(false),modelCoor(glGetUniformLocation(shader.program,"model"))
+BaseGameObject::BaseGameObject(ObjectCreater object, GLFWwindow *mainWindow, Shader shader)
+                               : window(mainWindow), shader(shader), value(false), modelCoor(glGetUniformLocation(shader.program, "model"))
 {
     if(!object.isInitializate())
     {
         object.initializate();
     }
 
-    auto data= object.return_data();
+    auto data= object.returnData();
 
     vao=data.at(0);
     vbo=data.at(1);
     ebo=data.at(2);
 
     texture=data.at(3);
-    float * matrix = object.get_matrix_translate();
+    float * matrix = object.getMatrixTranslate();
     this->a = matrix[0];
     this->b = matrix[1];
     this->c = matrix[2];
     delete[] matrix;
     matrix = nullptr;
 
-    matrix = object.get_matrix_scale();
+    matrix = object.getMatrixScale();
     this->sx = matrix[0];
     this->sy = matrix[1];
     this->sz = matrix[2];
     delete[] matrix;
     matrix = nullptr;
 
-    obj_coordinate_projection = object.return_model_coor();
+    auto arrModelLocCoor = object.returnModelLocCoor();
+    objProjCoor = {arrModelLocCoor.at(0), arrModelLocCoor.at(1)};
+    this->radius = arrModelLocCoor.at(2);
+
+
+    glm::mat4 projection = glm::ortho(-1.0f, +1.0f, -1.0f, +1.0f, +1.0f, -1.0f);
+
+    glm::mat4 camera = glm::lookAt(
+            glm::vec3(+0.0f,+0.0f,+1.0f),
+            glm::vec3(0.0f,0.0f,0.0f),
+            glm::vec3(0.0f,1.0f,0.0f)
+    );
+
+    glm::mat4 model=glm::mat4(1.f);
+    model=glm::translate(model, glm::vec3(a, b, c));
+    model=glm::scale(model, glm::vec3(sx, sy, sz));
+
+    worldModel = projection * camera * model;
+    radius *= worldModel[0][0] * -1;
+    objProjCoor.first  = worldModel[0][0];
+    objProjCoor.second = worldModel[1][1];
+
+    cx = (worldModel[0][0] + worldModel[3][0]);
+    cy = (worldModel[1][1] + worldModel[3][1]);
 }
 
 BaseGameObject::BaseGameObject(const BaseGameObject &other)
@@ -60,7 +82,7 @@ BaseGameObject::BaseGameObject(const BaseGameObject &other)
 
     this->window=other.window;
     this->modelCoor = other.modelCoor;
-    this->obj_coordinate_projection = other.obj_coordinate_projection;
+    this->objProjCoor = other.objProjCoor;
 
     this->a = other.a;
     this->b = other.b;
@@ -69,6 +91,12 @@ BaseGameObject::BaseGameObject(const BaseGameObject &other)
     this->sx = other.sx;
     this->sy = other.sy;
     this->sz = other.sz;
+
+    this->cx = other.cx;
+    this->cy = other.cy;
+    this->radius = other.radius;
+
+    this->worldModel = other.worldModel;
 }
 
 BaseGameObject::BaseGameObject(BaseGameObject &&other)
@@ -83,7 +111,7 @@ BaseGameObject::BaseGameObject(BaseGameObject &&other)
 
     this->window=other.window;
     this->modelCoor = other.modelCoor;
-    this->obj_coordinate_projection = other.obj_coordinate_projection;
+    this->objProjCoor = other.objProjCoor;
 
     this->a = other.a;
     this->b = other.b;
@@ -92,6 +120,12 @@ BaseGameObject::BaseGameObject(BaseGameObject &&other)
     this->sx = other.sx;
     this->sy = other.sy;
     this->sz = other.sz;
+
+    this->cx = other.cx;
+    this->cy = other.cy;
+    this->radius = other.radius;
+
+    this->worldModel = other.worldModel;
 
     other.vao=0;
     other.vbo=0;
@@ -103,7 +137,6 @@ BaseGameObject::BaseGameObject(BaseGameObject &&other)
 
     other.window= nullptr;
     other.modelCoor = 0;
-    other.obj_coordinate_projection = nullptr;
 
     other.a = 0;
     other.b = 0;
@@ -112,6 +145,12 @@ BaseGameObject::BaseGameObject(BaseGameObject &&other)
     other.sx = 0;
     other.sy = 0;
     other.sz = 0;
+
+    other.cx = 0;
+    other.cy = 0;
+    other.radius = 0;
+
+    other.worldModel = glm::mat4(0.);
 }
 
 BaseGameObject& BaseGameObject::operator=(const BaseGameObject &other)
@@ -126,7 +165,7 @@ BaseGameObject& BaseGameObject::operator=(const BaseGameObject &other)
 
     this->window=other.window;
     this->modelCoor = other.modelCoor;
-    this->obj_coordinate_projection = other.obj_coordinate_projection;
+    this->objProjCoor = other.objProjCoor;
 
     this->a = other.a;
     this->b = other.b;
@@ -135,6 +174,12 @@ BaseGameObject& BaseGameObject::operator=(const BaseGameObject &other)
     this->sx = other.sx;
     this->sy = other.sy;
     this->sz = other.sz;
+
+    this->cx = other.cx;
+    this->cy = other.cy;
+    this->radius = other.radius;
+
+    this->worldModel = other.worldModel;
 
     return *this;
 }
@@ -151,7 +196,7 @@ BaseGameObject& BaseGameObject::operator=(BaseGameObject &&other) noexcept
 
     this->window=other.window;
     this->modelCoor = other.modelCoor;
-    this->obj_coordinate_projection = other.obj_coordinate_projection;
+    this->objProjCoor = other.objProjCoor;
 
     this->a = other.a;
     this->b = other.b;
@@ -160,6 +205,10 @@ BaseGameObject& BaseGameObject::operator=(BaseGameObject &&other) noexcept
     this->sx = other.sx;
     this->sy = other.sy;
     this->sz = other.sz;
+
+    this->cx = other.cx;
+    this->cy = other.cy;
+    this->radius = other.radius;
 
     other.vao=0;
     other.vbo=0;
@@ -171,7 +220,6 @@ BaseGameObject& BaseGameObject::operator=(BaseGameObject &&other) noexcept
 
     other.window= nullptr;
     other.modelCoor = 0;
-    other.obj_coordinate_projection = nullptr;
 
     other.a = 0;
     other.b = 0;
@@ -181,17 +229,23 @@ BaseGameObject& BaseGameObject::operator=(BaseGameObject &&other) noexcept
     other.sy = 0;
     other.sz = 0;
 
+    other.cx = 0;
+    other.cy = 0;
+    other.radius = 0;
+
+    other.worldModel = glm::mat4(0.);
+
     return *this;
 }
 
-void BaseGameObject::set_matrix_translate(float a, float b, float c)
+void BaseGameObject::setMatrixTranslate(float a, float b, float c)
 {
     this->a = a;
     this->b = b;
     this->c = c;
 }
 
-void BaseGameObject::set_matrix_scale(float sx, float sy, float sz)
+void BaseGameObject::setMatrixScale(float sx, float sy, float sz)
 {
     this->sx = sx;
     this->sy = sy;
@@ -215,7 +269,8 @@ float BaseGameObject::getRadius()
 
 void BaseGameObject::render()
 {
-    glm::mat4 projection = glm::ortho(-1.0f, +1.0f, -1.0f, +1.0f, +1.0f, -1.0f);
+
+   /* glm::mat4 projection = glm::ortho(-1.0f, +1.0f, -1.0f, +1.0f, +1.0f, -1.0f);
 
     glm::mat4 camera = glm::lookAt(
             glm::vec3(+0.0f,+0.0f,+1.0f),
@@ -223,12 +278,12 @@ void BaseGameObject::render()
             glm::vec3(0.0f,1.0f,0.0f)
     );
 
-    glm::mat4 model_mat4=glm::mat4(1.f);
-    model_mat4=glm::translate(model_mat4, glm::vec3(a, b, c));
-    model_mat4=glm::scale(model_mat4, glm::vec3(sx, sy, sz));
+    glm::mat4 model=glm::mat4(1.f);
+    model=glm::translate(model, glm::vec3(a, b, c));
+    model=glm::scale(model, glm::vec3(sx, sy, sz));
 
-    this->model = projection * camera * model_mat4;
-    glUniformMatrix4fv(this->modelCoor,1,GL_FALSE,glm::value_ptr(model));
+    this->worldModel = projection * camera * model;*/
+    glUniformMatrix4fv(this->modelCoor,1,GL_FALSE,glm::value_ptr(worldModel));
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     glBindTexture(GL_TEXTURE_2D, texture);
@@ -240,24 +295,9 @@ void BaseGameObject::render()
     glDisable(GL_BLEND);
 }
 
-std::array<std::pair<double, double>, 3> BaseGameObject::return_position()
-{
-    const double x = model[0][0];
-    const double y = model[1][1];
-
-    for (int i = 0; i < obj_coordinate_projection->size(); ++i)
-    {
-       obj_coordinate_projection->at(i).first *= x;
-       obj_coordinate_projection->at(i).second *= y;
-    }
-
-    return *obj_coordinate_projection;
-}
-
 BaseGameObject::~BaseGameObject()
 {
     glDeleteVertexArrays(1, &vao);
     glDeleteBuffers(1, &vbo);
     glDeleteBuffers(1, &ebo);
-    delete obj_coordinate_projection;
 }

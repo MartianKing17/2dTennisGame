@@ -10,12 +10,17 @@
 
 class Platform:public BaseGameObject
 {
+    float left, right, top, bottom;
     const std::size_t lenBoolArr;
     bool *motionSet;
 public:
     Platform()=default;
     Platform(ObjectCreater object, GLFWwindow *mainwindow, Shader shader, bool *motionSetting);
     void update() override;
+    float getLeft();
+    float getRight();
+    float getTop();
+    float getBottom();
 };
 
 

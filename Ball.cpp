@@ -4,37 +4,36 @@
 
 #include "Ball.h"
 
-Ball::Ball(ObjectCreater object, GLFWwindow *mainwindow, Shader shader, bool &ball_forward)
-    : BaseGameObject(object, mainwindow,shader)
-    ,verticalSpeed(0),gorizontalSpeed(0),ball_forward(ball_forward){}
-
-
-void Ball::func()
-{
-    return;
-}
-
-void Ball::calcBallForwarding()
-{
-
-    return;
-}
+Ball::Ball(ObjectCreater object, GLFWwindow *mainwindow, Shader shader)
+    : BaseGameObject(object, mainwindow,shader),verticalSpeed(-0.02f),gorizontalSpeed(0){}
 
 void Ball::update()
 {
 
-    if(!ball_forward)
-    {
-        b += -0.025f;
-    }
-    else
-    {
-        b += 0.025f;
-    }
+    glm::mat4 projection = glm::ortho(-1.0f, +1.0f, -1.0f, +1.0f, +1.0f, -1.0f);
+
+    glm::mat4 camera = glm::lookAt(
+            glm::vec3(+0.0f,+0.0f,+1.0f),
+            glm::vec3(0.0f,0.0f,0.0f),
+            glm::vec3(0.0f,1.0f,0.0f)
+    );
+
+    glm::mat4 model=glm::mat4(1.f);
+    model=glm::translate(model, glm::vec3(a, b, c));
+    model=glm::scale(model, glm::vec3(sx, sy, sz));
+
+    this->worldModel = projection * camera * model;
+
+    cx = worldModel[0][0] + worldModel[3][0];
+    cy = worldModel[1][1] + worldModel[3][1];
+
+    a += gorizontalSpeed;
+    b += verticalSpeed;
 }
 
-void Ball::setSpeed()
+void Ball::setSpeed(float gorizontalSpeed, float verticalSpeed)
 {
-    return;
+    this->gorizontalSpeed = gorizontalSpeed;
+    this->verticalSpeed   = verticalSpeed;
 }
 

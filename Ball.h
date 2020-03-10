@@ -10,14 +10,11 @@
 
 class Ball:public BaseGameObject
 {
-    bool ball_forward;
-    void func();
-    int verticalSpeed, gorizontalSpeed;
+    float verticalSpeed, gorizontalSpeed;
 public:
-    Ball(ObjectCreater object, GLFWwindow *mainwindow, Shader shader, bool &ball_forward);
+    Ball(ObjectCreater object, GLFWwindow *mainwindow, Shader shader);
     void update() override;
-    void setSpeed();
-    void calcBallForwarding();
+    void setSpeed(float gorizontalSpeed, float verticalSpeed);
 };
 
 

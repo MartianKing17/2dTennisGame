@@ -25,7 +25,7 @@ Block & Block::operator =(const Block & other)
 
     this->window=other.window;
     this->modelCoor = other.modelCoor;
-    this->obj_coordinate_projection = other.obj_coordinate_projection;
+    this->objProjCoor = other.objProjCoor;
 
     this->a = other.a;
     this->b = other.b;
@@ -50,7 +50,7 @@ Block & Block::operator =(Block && other) noexcept
 
     this->window=other.window;
     this->modelCoor = other.modelCoor;
-    this->obj_coordinate_projection = other.obj_coordinate_projection;
+    this->objProjCoor = other.objProjCoor;
 
     this->a = other.a;
     this->b = other.b;
@@ -70,7 +70,6 @@ Block & Block::operator =(Block && other) noexcept
 
     other.window= nullptr;
     other.modelCoor = 0;
-    other.obj_coordinate_projection = nullptr;
 
     other.a = 0;
     other.b = 0;
@@ -84,6 +83,20 @@ Block & Block::operator =(Block && other) noexcept
 }
 
 void Block::update()
-{}
+{
+    glm::mat4 projection = glm::ortho(-1.0f, +1.0f, -1.0f, +1.0f, +1.0f, -1.0f);
+
+    glm::mat4 camera = glm::lookAt(
+            glm::vec3(+0.0f,+0.0f,+1.0f),
+            glm::vec3(0.0f,0.0f,0.0f),
+            glm::vec3(0.0f,1.0f,0.0f)
+    );
+
+    glm::mat4 model=glm::mat4(1.f);
+    model=glm::translate(model, glm::vec3(a, b, c));
+    model=glm::scale(model, glm::vec3(sx, sy, sz));
+
+    this->worldModel = projection * camera * model;
+}
 
 

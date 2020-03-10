@@ -30,7 +30,7 @@ list<Block> * createBlocks(GLFWwindow *window)
 
     ObjectCreater creater(startPosition,objectInfo[0]);
     creater.initializate();
-    creater.set_matrix_scale(val_mat_scale[0], val_mat_scale[1], val_mat_scale[2]);
+    creater.setMatrixScale(val_mat_scale[0], val_mat_scale[1], val_mat_scale[2]);
     Block * block;
 
     a = -0.9;
@@ -45,7 +45,7 @@ list<Block> * createBlocks(GLFWwindow *window)
             a = -0.9;
         }
 
-        creater.set_matrix_translate(a, b, c);
+        creater.setMatrixTranslate(a, b, c);
         block = new Block(creater, window, shader);
         blocks->push_back(*block);
         a += 0.2;
@@ -76,9 +76,9 @@ BaseGameObject *createBall(GLFWwindow *window)
 
     ObjectCreater creater(startPosition,objectInfo[0]);
     creater.initializate();
-    creater.set_matrix_translate(val_mat_translate[0], val_mat_translate[1], val_mat_translate[2]);
-    creater.set_matrix_scale(val_mat_scale[0], val_mat_scale[1],val_mat_scale[2]);
-    return new Ball(creater, window, shader, ball_forward);
+    creater.setMatrixTranslate(val_mat_translate[0], val_mat_translate[1], val_mat_translate[2]);
+    creater.setMatrixScale(val_mat_scale[0], val_mat_scale[1], val_mat_scale[2]);
+    return new Ball(creater, window, shader);
 }
 
 BaseGameObject *createPlatform(GLFWwindow *window, bool *motionSet)
@@ -100,8 +100,8 @@ BaseGameObject *createPlatform(GLFWwindow *window, bool *motionSet)
 
     ObjectCreater creater(startPosition,objectInfo[0]);
     creater.initializate();
-    creater.set_matrix_translate(val_mat_translate[0], val_mat_translate[1], val_mat_translate[2]);
-    creater.set_matrix_scale(val_mat_scale[0], val_mat_scale[1],val_mat_scale[2]);
+    creater.setMatrixTranslate(val_mat_translate[0], val_mat_translate[1], val_mat_translate[2]);
+    creater.setMatrixScale(val_mat_scale[0], val_mat_scale[1], val_mat_scale[2]);
     return new Platform(creater, window, shader, motionSet);
 }
 
@@ -110,56 +110,67 @@ void update(BaseGameObject *ball, BaseGameObject *platform)
 {
     ball->update();
     platform->update();
-
 }
 
 void render(BaseGameObject *ball, BaseGameObject *platform, list<Block> *blocks, glm::mat4 model)
 {
-    glClearColor(0.f, 0.f, 0.f, 1.f);
+    glClearColor(1.f, 0.f, 0.f, 1.f);
     glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
     ball->render();
     platform->render();
 
+   /*
     for (auto iter = blocks->begin(); iter != blocks->end() ; iter++)
     {
         iter->render();
     }
 
+*/
 }
 
 bool check_touch(Ball *ball, Platform *platform, list<Block> *blocks)
 {
+    float gorizontalSpeed, verticalSpeed;
 
-    if((ball->getVerticalPlace() - ball->getRadius()) == (platform->getVerticalPlace() - platform->getRadius()))
+    if((ball->getVerticalPlace() - ball->getRadius()) <= (platform->getVerticalPlace() + platform->getTop()))
     {
-        ball->setSpeed();
+        gorizontalSpeed =  0.02;
+        verticalSpeed   =  0.02;
+        ball->setSpeed(gorizontalSpeed, verticalSpeed);
     }
-    else if((ball->getVerticalPlace() - ball->getRadius()) == 1)
+    else if((ball->getVerticalPlace() + ball->getRadius()) > 1)
     {
-        ball->setSpeed();
+        gorizontalSpeed = -0.02;
+        verticalSpeed   = -0.02;
+        ball->setSpeed(gorizontalSpeed, verticalSpeed);
     }
-    else if((ball->getVerticalPlace() - ball->getRadius()) == -1)
+    else if((ball->getVerticalPlace() - ball->getRadius()) < -1)
     {
         return false;
     }
 
-    if((ball->getGorizontalPlace() - ball->getRadius()) == 1)
+    if((ball->getGorizontalPlace() - ball->getRadius()) < -1)
     {
-        ball->setSpeed();
+        gorizontalSpeed =  0.02;
+        verticalSpeed   = -0.02;
+        ball->setSpeed(gorizontalSpeed, verticalSpeed);
     }
-    else if((ball->getGorizontalPlace() - ball->getRadius()) == -1)
+    else if((ball->getGorizontalPlace() + ball->getRadius()) > 1)
     {
-        ball->setSpeed();
+        gorizontalSpeed = -0.02;
+        verticalSpeed   =  0.02;
+        ball->setSpeed(gorizontalSpeed, verticalSpeed);
     }
 
-    for (auto iter = blocks->begin(); iter != blocks->end() ; iter++)
+
+    /*for (auto iter = blocks->begin(); iter != blocks->end() ; iter++)
     {
         if((ball->getVerticalPlace() + ball->getRadius()) == (iter->getVerticalPlace() - iter->getRadius()))
         {
             blocks->erase(iter);
-            ball->setSpeed();
+            ball->setSpeed(0, 0);
         }
-    }
+    }*/
 
     return true;
 }
@@ -199,8 +210,7 @@ void mainloop(BaseGameObject *ball, BaseGameObject *platform, list<Block> *block
         }
         */
 
-        /*
-        if(!check_touch((Ball *) ball, (Platform *) platform, (list<Block> *)blocks))
+        if(!check_touch((Ball *) ball, (Platform *) platform, blocks))
         {
             const float val_mat_translate_ball[3] = {0.,0.,1.};
             const float val_mat_scale_ball[3] = {0.03,0.03,0.};
@@ -208,17 +218,15 @@ void mainloop(BaseGameObject *ball, BaseGameObject *platform, list<Block> *block
             const float val_mat_translate_platform[3] = {0., -0.75, 1.};
             const float val_mat_scale_platform[3] = {0.25, 0.25, 0.};
 
-            ball->set_matrix_translate(val_mat_translate_ball[0], val_mat_translate_ball[1], val_mat_translate_ball[2]);
-            ball->set_matrix_scale(val_mat_scale_ball[0], val_mat_scale_ball[1], val_mat_scale_ball[2]);
+            ball->setMatrixTranslate(val_mat_translate_ball[0], val_mat_translate_ball[1], val_mat_translate_ball[2]);
+            ball->setMatrixScale(val_mat_scale_ball[0], val_mat_scale_ball[1], val_mat_scale_ball[2]);
 
-            platform->set_matrix_translate(val_mat_translate_platform[0], val_mat_translate_platform[1],
-                                            val_mat_translate_platform[2]);
-            platform->set_matrix_scale(val_mat_scale_platform[0], val_mat_scale_platform[1], val_mat_scale_platform[2]);
+            platform->setMatrixTranslate(val_mat_translate_platform[0], val_mat_translate_platform[1],
+                                         val_mat_translate_platform[2]);
+            platform->setMatrixScale(val_mat_scale_platform[0], val_mat_scale_platform[1], val_mat_scale_platform[2]);
 
             isSpaceActive = false;
         }
-         */
-
 
         update(ball, platform);
 
