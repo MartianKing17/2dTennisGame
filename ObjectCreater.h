@@ -10,6 +10,9 @@
 #include "include/glfw3.h"
 #include <iostream>
 #include "include/SOIL.h"
+#include "include/glm/glm.hpp"
+#include "include/glm/gtc/matrix_transform.hpp"
+#include "include/glm/gtc/type_ptr.hpp"
 #include <vector>
 #include <string>
 
@@ -22,6 +25,7 @@ class ObjectCreater
     GLfloat vertices[32];
     GLint indices[6];
     std::string texName;
+    glm::mat4 createMatrix();
     void createTexture(std::string data);
     void initializateVao();
     void initializateVbo();

@@ -49,6 +49,12 @@ iostream
 -
 include/SOIL.h
 /home/maxim/CppProjects/GameProject/2dTennisGame/include/SOIL.h
+include/glm/glm.hpp
+/home/maxim/CppProjects/GameProject/2dTennisGame/include/glm/glm.hpp
+include/glm/gtc/matrix_transform.hpp
+/home/maxim/CppProjects/GameProject/2dTennisGame/include/glm/gtc/matrix_transform.hpp
+include/glm/gtc/type_ptr.hpp
+/home/maxim/CppProjects/GameProject/2dTennisGame/include/glm/gtc/type_ptr.hpp
 vector
 -
 string

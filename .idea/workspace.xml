@@ -17,23 +17,15 @@
     <list default="true" id="cc884d46-593c-4f0a-88ba-238f45b9dd0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ball.h" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BaseGameObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BaseGameObject.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BaseGameObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/BaseGameObject.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Block.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Block.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ObjectCreater.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectCreater.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ObjectCreater.h" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectCreater.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Platform.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Platform.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform.h" beforeDir="false" afterPath="$PROJECT_DIR$/Platform.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/2dTennisGame" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/2dTennisGame" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/libGameGraphic.so" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/libGameGraphic.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/path/shaderBall.vs" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/path/shaderBall.vs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/path/shaderPlatform.vs" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/path/shaderPlatform.vs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/createGameLoop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/createGameLoop.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/glfw3.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/glfw3.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/glm/detail/setup.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/glm/detail/setup.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/glm/simd/platform.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/glm/simd/platform.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <list id="3b13156d-e57d-4979-9869-090e0b2198c8" name="Revert &quot;Add timer and make better code&quot;" comment="Revert &quot;Add timer and make better code&quot;&#10;&#10;This reverts commit cf7b2b79" />
@@ -261,7 +253,9 @@
       <workItem from="1583599352627" duration="1387000" />
       <workItem from="1583664211598" duration="14277000" />
       <workItem from="1583762937020" duration="5266000" />
-      <workItem from="1583833365333" duration="18406000" />
+      <workItem from="1583833365333" duration="18699000" />
+      <workItem from="1584099242844" duration="6790000" />
+      <workItem from="1584276944345" duration="9906000" />
     </task>
     <task id="LOCAL-00001" summary="The first project commit">
       <created>1558522713282</created>
@@ -326,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583770266091</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Adding bad physics and the platform moves smoother">
+      <created>1583854758047</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1583854758047</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -425,7 +426,8 @@
     <MESSAGE value="Revert &quot;Add timer and make better code&quot;&#10;&#10;This reverts commit bd67fd42" />
     <MESSAGE value="Modify game logic" />
     <MESSAGE value="Adding blocks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding blocks" />
+    <MESSAGE value="Adding bad physics and the platform moves smoother" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding bad physics and the platform moves smoother" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="59" width="800" height="684" key="#Notifications" timestamp="1583668914878">
@@ -436,11 +438,11 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="441" y="50" key="#xdebugger.evaluate/0.27.1366.741@0.27.1366.741" timestamp="1583695476867" />
-    <state x="261" y="27" width="935" height="741" key="CommitChangelistDialog2" timestamp="1583854756289">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state x="324" y="157" width="935" height="741" key="CommitChangelistDialog2" timestamp="1584294580676">
+      <screen x="0" y="27" width="1600" height="1173" />
     </state>
     <state x="261" y="27" width="935" height="741" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1583854756289" />
-    <state x="324" y="157" width="942" height="919" key="CommitChangelistDialog2/0.27.1600.1173@0.27.1600.1173" timestamp="1581972421852" />
+    <state x="324" y="157" width="942" height="919" key="CommitChangelistDialog2/0.27.1600.1173@0.27.1600.1173" timestamp="1584294580676" />
     <state x="127" y="90" width="1092" height="629" key="DiffContextDialog" timestamp="1583669504395">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
@@ -469,46 +471,46 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state width="1320" height="211" key="GridCell.Tab.-1.right/0.27.1366.741@0.27.1366.741" timestamp="1581536542511" />
-    <state width="1320" height="144" key="GridCell.Tab.0.bottom" timestamp="1583854609406">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1554" height="266" key="GridCell.Tab.0.bottom" timestamp="1584294459176">
+      <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="144" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1583854609406" />
-    <state width="1554" height="380" key="GridCell.Tab.0.bottom/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750733" />
-    <state width="1320" height="144" key="GridCell.Tab.0.center" timestamp="1583854609404">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1320" height="210" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1583854814516" />
+    <state width="1554" height="266" key="GridCell.Tab.0.bottom/0.27.1600.1173@0.27.1600.1173" timestamp="1584294459176" />
+    <state width="1554" height="266" key="GridCell.Tab.0.center" timestamp="1584294459175">
+      <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="144" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1583854609404" />
-    <state width="1554" height="380" key="GridCell.Tab.0.center/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750732" />
-    <state width="1320" height="144" key="GridCell.Tab.0.left" timestamp="1583854609404">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1320" height="210" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1583854814515" />
+    <state width="1554" height="266" key="GridCell.Tab.0.center/0.27.1600.1173@0.27.1600.1173" timestamp="1584294459175" />
+    <state width="1554" height="266" key="GridCell.Tab.0.left" timestamp="1584294459175">
+      <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="144" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1583854609404" />
-    <state width="1554" height="380" key="GridCell.Tab.0.left/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750732" />
-    <state width="1320" height="144" key="GridCell.Tab.0.right" timestamp="1583854609405">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1320" height="210" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1583854814514" />
+    <state width="1554" height="266" key="GridCell.Tab.0.left/0.27.1600.1173@0.27.1600.1173" timestamp="1584294459175" />
+    <state width="1554" height="266" key="GridCell.Tab.0.right" timestamp="1584294459176">
+      <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="144" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1583854609405" />
-    <state width="1554" height="380" key="GridCell.Tab.0.right/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750733" />
-    <state width="1320" height="210" key="GridCell.Tab.1.bottom" timestamp="1583853314761">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1320" height="210" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1583854814515" />
+    <state width="1554" height="266" key="GridCell.Tab.0.right/0.27.1600.1173@0.27.1600.1173" timestamp="1584294459176" />
+    <state width="1554" height="378" key="GridCell.Tab.1.bottom" timestamp="1584291095790">
+      <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1583853314761" />
-    <state width="1554" height="380" key="GridCell.Tab.1.bottom/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750735" />
-    <state width="1320" height="210" key="GridCell.Tab.1.center" timestamp="1583853314760">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1320" height="210" key="GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1583854814517" />
+    <state width="1554" height="378" key="GridCell.Tab.1.bottom/0.27.1600.1173@0.27.1600.1173" timestamp="1584291095790" />
+    <state width="1554" height="378" key="GridCell.Tab.1.center" timestamp="1584291095789">
+      <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741" timestamp="1583853314760" />
-    <state width="1554" height="380" key="GridCell.Tab.1.center/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750734" />
-    <state width="1320" height="210" key="GridCell.Tab.1.left" timestamp="1583853314760">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1320" height="210" key="GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741" timestamp="1583854814516" />
+    <state width="1554" height="378" key="GridCell.Tab.1.center/0.27.1600.1173@0.27.1600.1173" timestamp="1584291095789" />
+    <state width="1554" height="378" key="GridCell.Tab.1.left" timestamp="1584291095788">
+      <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741" timestamp="1583853314760" />
-    <state width="1554" height="380" key="GridCell.Tab.1.left/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750734" />
-    <state width="1320" height="210" key="GridCell.Tab.1.right" timestamp="1583853314761">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1320" height="210" key="GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741" timestamp="1583854814516" />
+    <state width="1554" height="378" key="GridCell.Tab.1.left/0.27.1600.1173@0.27.1600.1173" timestamp="1584291095788" />
+    <state width="1554" height="378" key="GridCell.Tab.1.right" timestamp="1584291095789">
+      <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741" timestamp="1583853314761" />
-    <state width="1554" height="380" key="GridCell.Tab.1.right/0.27.1600.1173@0.27.1600.1173" timestamp="1583600750734" />
+    <state width="1320" height="210" key="GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741" timestamp="1583854814517" />
+    <state width="1554" height="378" key="GridCell.Tab.1.right/0.27.1600.1173@0.27.1600.1173" timestamp="1584291095789" />
     <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.bottom" timestamp="1581536722692">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
@@ -545,10 +547,10 @@
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="526" y="314" width="303" height="174" key="VCS.ChangelistChooser/0.27.1366.741@0.27.1366.741" timestamp="1583671452009" />
-    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1583671796261">
+    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1583854776030">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.741@0.27.1366.741" timestamp="1583671796261" />
+    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.741@0.27.1366.741" timestamp="1583854776030" />
     <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1583669937162">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
@@ -582,10 +584,10 @@
     </state>
     <state x="427" y="27" width="501" height="699" key="refactoring.ChangeSignatureDialog/0.27.1366.741@0.27.1366.741" timestamp="1583850947926" />
     <state x="500" y="49" width="501" height="720" key="refactoring.ChangeSignatureDialog/0.27.1600.1173@0.27.1600.1173" timestamp="1581971976718" />
-    <state x="464" y="282" key="run.anything.popup" timestamp="1581970662691">
+    <state x="464" y="282" key="run.anything.popup" timestamp="1584291248170">
       <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state x="464" y="282" key="run.anything.popup/0.27.1600.1173@0.27.1600.1173" timestamp="1581970662691" />
+    <state x="464" y="282" key="run.anything.popup/0.27.1600.1173@0.27.1600.1173" timestamp="1584291248170" />
     <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1583765077972">
       <screen x="0" y="27" width="1366" height="741" />
     </state>

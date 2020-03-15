@@ -19,7 +19,7 @@ void key_callback(GLFWwindow * window,int key,int scancode,int action,int mode)
     }
 
 
-    if((key==GLFW_KEY_LEFT || key==GLFW_KEY_A) && (action == GLFW_RELEASE)) // || action == GLFW_PRESS))
+    if((key==GLFW_KEY_LEFT || key==GLFW_KEY_A) && (action == GLFW_PRESS)) // || action == GLFW_PRESS))
     {
         if(state[1])
         {
@@ -29,7 +29,7 @@ void key_callback(GLFWwindow * window,int key,int scancode,int action,int mode)
         state[0]=true;
     }
 
-    else if((key==GLFW_KEY_RIGHT || key==GLFW_KEY_D) && (action == GLFW_RELEASE))// || action == GLFW_PRESS))
+    else if((key==GLFW_KEY_RIGHT || key==GLFW_KEY_D) && (action == GLFW_PRESS))// || action == GLFW_PRESS))
     {
         if(state[0])
         {
@@ -40,7 +40,7 @@ void key_callback(GLFWwindow * window,int key,int scancode,int action,int mode)
     }
     else if((key==GLFW_KEY_SPACE) && action == GLFW_PRESS)
     {
-        if(state[2] == false)
+        if(!state[2])
         {
             state[2] = true;
         }

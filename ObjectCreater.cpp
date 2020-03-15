@@ -288,13 +288,32 @@ double abs(double x)
     return x;
 }
 
+glm::mat4 ObjectCreater::createMatrix()
+{
+    glm::mat4 projection = glm::ortho(-1.0f, +1.0f, -1.0f, +1.0f, +1.0f, -1.0f);
+
+    glm::mat4 camera = glm::lookAt(
+            glm::vec3(+0.0f,+0.0f,+1.0f),
+            glm::vec3(0.0f,0.0f,0.0f),
+            glm::vec3(0.0f,1.0f,0.0f)
+    );
+
+    glm::mat4 model=glm::mat4(1.f);
+    model=glm::translate(model, glm::vec3(a, b, c));
+    model=glm::scale(model, glm::vec3(sx, sy, sz));
+
+    return projection * camera * model;
+}
+
 std::array<double, 3> ObjectCreater::returnModelLocCoor()
 {
+    glm::mat4 worldModel = createMatrix();
+    float modelValue = worldModel[0][0];
+    float radius = (float)(abs(worldModel[0][0] * vertices[0]) + abs(worldModel[0][0] * vertices[8])) / 2;
     std::array<double, 3> data;
-    const double len = (abs(vertices[0]) + abs(vertices[8])) / 2;
-    data[0] = vertices[0];
-    data[1] = vertices[8];
-    data[2] = len;
+    data[0] = vertices[24];
+    data[1] = vertices[25];
+    data[2] = radius;
     return data;
 }
 

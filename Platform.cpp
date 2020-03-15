@@ -7,28 +7,28 @@
 Platform::Platform(ObjectCreater object, GLFWwindow *mainwindow, Shader shader, bool *motionSetting)
     : BaseGameObject(object, mainwindow,shader),motionSet(motionSetting),lenBoolArr(2)
     {
-        this->left = this->right = this->radius * 2;
-        this->top = this->bottom = this->radius / 1.25;
+        this->left = this->right = this->radius / 5;
+        this->top = this->bottom = this->radius / 5;
     }
 
 float Platform::getTop()
 {
-    return this->top;
+    return getVerticalPlace() + this->top;
 }
 
 float Platform::getBottom()
 {
-    return this->bottom;
+    return getVerticalPlace() - this->bottom;
 }
 
 float Platform::getLeft()
 {
-    return this->left;
+    return getGorizontalPlace() - this->radius + left;
 }
 
 float Platform::getRight()
 {
-    return this->right;
+    return getGorizontalPlace() + this->radius - right;
 }
 
 void Platform::update()
@@ -47,20 +47,18 @@ void Platform::update()
 
     this->worldModel = projection * camera * model;
 
-    cx = worldModel[0][0] + worldModel[3][0];
-    cy = worldModel[1][1] + worldModel[3][1];
+    cx = worldModel[0][0] * (float)objProjCoor.first + worldModel[3][0] ;
+    cy = worldModel[1][1]  * (float)objProjCoor.second + worldModel[3][1];
 
     static const float lim = 0.7f;
     if(motionSet[0] && a > -lim)
     {
         a+=-0.025f;
-        //motionSet[0] = false;
     }
 
     if(motionSet[1] && a < lim)
     {
         a+=0.025f;
-        //motionSet[1] = false;
     }
 }
 

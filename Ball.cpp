@@ -5,7 +5,7 @@
 #include "Ball.h"
 
 Ball::Ball(ObjectCreater object, GLFWwindow *mainwindow, Shader shader)
-    : BaseGameObject(object, mainwindow,shader),verticalSpeed(-0.02f),gorizontalSpeed(0){}
+    : BaseGameObject(object, mainwindow,shader),verticalSpeed(-0.01f),gorizontalSpeed(0){}
 
 void Ball::update()
 {
@@ -24,8 +24,8 @@ void Ball::update()
 
     this->worldModel = projection * camera * model;
 
-    cx = worldModel[0][0] + worldModel[3][0];
-    cy = worldModel[1][1] + worldModel[3][1];
+    cx = worldModel[0][0] * (float)objProjCoor.first + worldModel[3][0] ;
+    cy = worldModel[1][1]  * (float)objProjCoor.second + worldModel[3][1];
 
     a += gorizontalSpeed;
     b += verticalSpeed;

@@ -114,51 +114,61 @@ void update(BaseGameObject *ball, BaseGameObject *platform)
 
 void render(BaseGameObject *ball, BaseGameObject *platform, list<Block> *blocks, glm::mat4 model)
 {
-    glClearColor(1.f, 0.f, 0.f, 1.f);
+    glClearColor(0.f, 0.f, 0.f, 1.f);
     glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
     ball->render();
     platform->render();
 
-   /*
+/*
     for (auto iter = blocks->begin(); iter != blocks->end() ; iter++)
     {
         iter->render();
     }
-
 */
+
 }
 
-bool check_touch(Ball *ball, Platform *platform, list<Block> *blocks)
+bool checkTouch(Ball *ball, Platform *platform, list<Block> *blocks)
 {
     float gorizontalSpeed, verticalSpeed;
 
-    if((ball->getVerticalPlace() - ball->getRadius()) <= (platform->getVerticalPlace() + platform->getTop()))
+    const float ballBottomPoint = ball->getVerticalPlace() - ball->getRadius();
+
+
+    if((ballBottomPoint - platform->getTop() <= 0.01) && (ball->getGorizontalPlace() >= platform->getLeft()) && (ball->getGorizontalPlace() <= platform->getRight()))
     {
-        gorizontalSpeed =  0.02;
-        verticalSpeed   =  0.02;
+        gorizontalSpeed =  0.01;
+        verticalSpeed   =  0.01;
+
+        /*
+            The angle of the bounce of the ball from the platform, calculated as arccos((x - 0.5l) /0.5l)
+            Where l is platform length and x is long from the left edge to the point where the ball falls
+        */
+
         ball->setSpeed(gorizontalSpeed, verticalSpeed);
     }
-    else if((ball->getVerticalPlace() + ball->getRadius()) > 1)
+    else if(abs(ball->getVerticalPlace() + ball->getRadius() - 1.) <= 0.01)
     {
-        gorizontalSpeed = -0.02;
-        verticalSpeed   = -0.02;
+        gorizontalSpeed = -0.01;
+        verticalSpeed   = -0.01;
         ball->setSpeed(gorizontalSpeed, verticalSpeed);
     }
-    else if((ball->getVerticalPlace() - ball->getRadius()) < -1)
+    else if(abs(ball->getVerticalPlace() - ball->getRadius() - (-1)) <= 0.01)
     {
+        ball->setSpeed(0, -0.01f);
         return false;
     }
 
-    if((ball->getGorizontalPlace() - ball->getRadius()) < -1)
+    if(abs(ball->getGorizontalPlace() - ball->getRadius() - (-1)) <= 0.01)
     {
-        gorizontalSpeed =  0.02;
-        verticalSpeed   = -0.02;
+        gorizontalSpeed =  0.01;
+        verticalSpeed   = -0.01;
         ball->setSpeed(gorizontalSpeed, verticalSpeed);
     }
-    else if((ball->getGorizontalPlace() + ball->getRadius()) > 1)
+    else if(abs(ball->getGorizontalPlace() + ball->getRadius() - 1) <= 0.01)
     {
-        gorizontalSpeed = -0.02;
-        verticalSpeed   =  0.02;
+        gorizontalSpeed = -0.01;
+        verticalSpeed   =  0.01;
         ball->setSpeed(gorizontalSpeed, verticalSpeed);
     }
 
@@ -189,7 +199,7 @@ void mainloop(BaseGameObject *ball, BaseGameObject *platform, list<Block> *block
 
         delta_time = duration_cast<milliseconds>(system_clock::now() - timer).count();
 
-        if(delta_time < 16 * 2)
+        if(delta_time < 16)
         {
             continue;
         }
@@ -210,7 +220,7 @@ void mainloop(BaseGameObject *ball, BaseGameObject *platform, list<Block> *block
         }
         */
 
-        if(!check_touch((Ball *) ball, (Platform *) platform, blocks))
+        if(!checkTouch((Ball *) ball, (Platform *) platform, blocks))
         {
             const float val_mat_translate_ball[3] = {0.,0.,1.};
             const float val_mat_scale_ball[3] = {0.03,0.03,0.};

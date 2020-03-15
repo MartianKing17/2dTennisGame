@@ -48,7 +48,6 @@ BaseGameObject::BaseGameObject(ObjectCreater object, GLFWwindow *mainWindow, Sha
     objProjCoor = {arrModelLocCoor.at(0), arrModelLocCoor.at(1)};
     this->radius = arrModelLocCoor.at(2);
 
-
     glm::mat4 projection = glm::ortho(-1.0f, +1.0f, -1.0f, +1.0f, +1.0f, -1.0f);
 
     glm::mat4 camera = glm::lookAt(
@@ -62,12 +61,9 @@ BaseGameObject::BaseGameObject(ObjectCreater object, GLFWwindow *mainWindow, Sha
     model=glm::scale(model, glm::vec3(sx, sy, sz));
 
     worldModel = projection * camera * model;
-    radius *= worldModel[0][0] * -1;
-    objProjCoor.first  = worldModel[0][0];
-    objProjCoor.second = worldModel[1][1];
 
-    cx = (worldModel[0][0] + worldModel[3][0]);
-    cy = (worldModel[1][1] + worldModel[3][1]);
+    cx = (worldModel[0][0] + worldModel[3][0]) * (float)objProjCoor.first;
+    cy = (worldModel[1][1] + worldModel[3][1]) * (float)objProjCoor.second;
 }
 
 BaseGameObject::BaseGameObject(const BaseGameObject &other)
@@ -254,12 +250,12 @@ void BaseGameObject::setMatrixScale(float sx, float sy, float sz)
 
 float BaseGameObject::getVerticalPlace()
 {
-    return this->cy;
+    return this->cy - this->radius;
 }
 
 float BaseGameObject::getGorizontalPlace()
 {
-    return this->cx;
+    return this->cx + this->radius;
 }
 
 float BaseGameObject::getRadius()
