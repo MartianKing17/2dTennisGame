@@ -6,7 +6,7 @@
 #define INC_2DTENNISGAME_OBJECTCREATER_H
 
 #include <array>
-#include "include/Shader.h"
+#include "Shader.h"
 #include "include/glfw3.h"
 #include <iostream>
 #include "include/SOIL.h"

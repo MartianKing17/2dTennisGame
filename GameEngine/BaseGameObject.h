@@ -6,7 +6,7 @@
 #define INC_2DTENNISGAME_BASEGAMEOBJECT_H
 
 #include <array>
-#include "include/Shader.h"
+#include "Shader.h"
 #include "include/glfw3.h"
 #include "include/glm/glm.hpp"
 #include "include/glm/gtc/matrix_transform.hpp"

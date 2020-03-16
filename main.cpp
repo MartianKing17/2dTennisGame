@@ -2,8 +2,8 @@
 // Created by maxim on 22.05.2019.
 //
 
-#include "filedata.h"
-#include "createGameLoop.h"
+#include "GameEngine/filedata.h"
+#include "GameEngine/createGameLoop.h"
 #include <memory>
 #include <list>
 
@@ -75,10 +75,8 @@ GLFWwindow * createDisplay(vector<string> fileData)
 /*
  TODO:
      * debugging texture
-     * why blocks have not correct place
      * make the platform move smoothly +-
-     * make the ball move smoothly +-
-     * realise the ball beating off the platform and the walls +-
+     * problems with blocks->remove(*it)
 */
 
 int main()
