@@ -65,7 +65,6 @@ Block & Block::operator =(Block && other) noexcept
     other.ebo=0;
 
     other.texture=0;
-    //other.shader= nullptr;
     other.value=false;
 
     other.window= nullptr;
@@ -80,6 +79,27 @@ Block & Block::operator =(Block && other) noexcept
     other.sz = 0;
 
     return *this;
+}
+
+bool Block::operator==(const Block &other) const
+{
+    if(this->modelCoor != other.modelCoor)
+        return false;
+    else if (this->worldModel != other.worldModel)
+        return false;
+    else if(this->vao != other.vao)
+        return false;
+    else if(this->vbo != other.vbo)
+        return false;
+    else if(this->ebo != other.ebo)
+        return false;
+
+    return true;
+}
+
+bool Block::operator!=(const Block &other) const
+{
+    return !operator==(other);
 }
 
 void Block::update()

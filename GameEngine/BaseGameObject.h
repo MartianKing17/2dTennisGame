@@ -41,9 +41,9 @@ public:
     void setMatrixScale(float sx, float sy, float sz);
     void render(); //Render position place and drawing paint
     virtual void update() = 0; //Update position data
-    float getVerticalPlace();
-    float getGorizontalPlace();
-    float getRadius();
+    float getVerticalPlace() const;
+    float getGorizontalPlace()const;
+    float getRadius() const;
     virtual ~BaseGameObject();
 };
 

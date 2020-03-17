@@ -18,6 +18,8 @@ public:
     Block(Block && other);
     Block & operator =(const Block & other);
     Block & operator =(Block && other) noexcept;
+    bool operator == (const Block& other) const;
+    bool operator != (const Block& other) const;
     void update() override;
     virtual ~Block() = default;
 };

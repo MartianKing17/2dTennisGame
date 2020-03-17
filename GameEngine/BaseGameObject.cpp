@@ -10,13 +10,13 @@ BaseGameObject::BaseGameObject()
     vbo=0, vao=0, ebo=0;
     texture=0;
     shader=Shader();
-    modelCoor = glGetUniformLocation(shader.program,"model");
+    modelCoor = glGetUniformLocation(shader.getProgram(),"model");
     window= nullptr;
     value=false;
 }
 
 BaseGameObject::BaseGameObject(ObjectCreater object, GLFWwindow *mainWindow, Shader shader)
-                               : window(mainWindow), shader(shader), value(false), modelCoor(glGetUniformLocation(shader.program, "model"))
+                               : window(mainWindow), shader(shader), value(false), modelCoor(glGetUniformLocation(shader.getProgram(), "model"))
 {
     if(!object.isInitializate())
     {
@@ -62,8 +62,8 @@ BaseGameObject::BaseGameObject(ObjectCreater object, GLFWwindow *mainWindow, Sha
 
     worldModel = projection * camera * model;
 
-    cx = (worldModel[0][0] + worldModel[3][0]) * (float)objProjCoor.first;
-    cy = (worldModel[1][1] + worldModel[3][1]) * (float)objProjCoor.second;
+    cx = worldModel[0][0] * (float)objProjCoor.first + worldModel[3][0] ;
+    cy = worldModel[1][1] * (float)objProjCoor.second + worldModel[3][1];
 }
 
 BaseGameObject::BaseGameObject(const BaseGameObject &other)
@@ -128,7 +128,6 @@ BaseGameObject::BaseGameObject(BaseGameObject &&other)
     other.ebo=0;
 
     other.texture=0;
-    //other.shader= nullptr;
     other.value=false;
 
     other.window= nullptr;
@@ -211,7 +210,6 @@ BaseGameObject& BaseGameObject::operator=(BaseGameObject &&other) noexcept
     other.ebo=0;
 
     other.texture=0;
-    //other.shader= nullptr;
     other.value=false;
 
     other.window= nullptr;
@@ -248,42 +246,28 @@ void BaseGameObject::setMatrixScale(float sx, float sy, float sz)
     this->sz = sz;
 }
 
-float BaseGameObject::getVerticalPlace()
+float BaseGameObject::getVerticalPlace() const
 {
     return this->cy - this->radius;
 }
 
-float BaseGameObject::getGorizontalPlace()
+float BaseGameObject::getGorizontalPlace() const
 {
     return this->cx + this->radius;
 }
 
-float BaseGameObject::getRadius()
+float BaseGameObject::getRadius() const
 {
     return this->radius;
 }
 
 void BaseGameObject::render()
 {
-
-   /* glm::mat4 projection = glm::ortho(-1.0f, +1.0f, -1.0f, +1.0f, +1.0f, -1.0f);
-
-    glm::mat4 camera = glm::lookAt(
-            glm::vec3(+0.0f,+0.0f,+1.0f),
-            glm::vec3(0.0f,0.0f,0.0f),
-            glm::vec3(0.0f,1.0f,0.0f)
-    );
-
-    glm::mat4 model=glm::mat4(1.f);
-    model=glm::translate(model, glm::vec3(a, b, c));
-    model=glm::scale(model, glm::vec3(sx, sy, sz));
-
-    this->worldModel = projection * camera * model;*/
+    shader.Use();
     glUniformMatrix4fv(this->modelCoor,1,GL_FALSE,glm::value_ptr(worldModel));
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     glBindTexture(GL_TEXTURE_2D, texture);
-    shader.Use();
     glBindVertexArray(vao);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     glBindTexture(GL_TEXTURE_2D,0);

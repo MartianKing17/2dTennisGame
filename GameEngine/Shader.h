@@ -15,15 +15,15 @@ class Shader
 {
     GLuint createShader(const GLchar * shaderSource,GLuint shaderType);
     std::string * readShader(const std::string vertexPath,const std::string fragmentPath);
-
-public:
     GLuint program;
+public:
     Shader()= default;
     Shader(const Shader & other)= default;
     Shader(Shader && other)= default;
+    GLuint getProgram();
     Shader(const std::string vertexPath,const std::string fragmentPath);
-    Shader &operator=(const Shader & other)= default;
-    Shader &operator=(Shader && other)= default;
+    void operator=(const Shader & other);
+    void operator=(Shader && other) noexcept;
     void Use();
     ~Shader()= default;
 };

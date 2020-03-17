@@ -21,24 +21,22 @@ void key_callback(GLFWwindow * window,int key,int scancode,int action,int mode)
 
     if((key==GLFW_KEY_LEFT || key==GLFW_KEY_A) && (action == GLFW_PRESS)) // || action == GLFW_PRESS))
     {
-        if(state[1])
-        {
-            state[1]=false;
-        }
-
-        state[0]=true;
+        state[1] = false;
+        state[0] = true;
     }
-
-    else if((key==GLFW_KEY_RIGHT || key==GLFW_KEY_D) && (action == GLFW_PRESS))// || action == GLFW_PRESS))
+    else if((key==GLFW_KEY_RIGHT || key==GLFW_KEY_D) && (action == GLFW_PRESS)) // || action == GLFW_PRESS))
     {
-        if(state[0])
-        {
-            state[0]=false;
-        }
-
-        state[1]=true;
+        state[0] = false;
+        state[1] = true;
     }
-    else if((key==GLFW_KEY_SPACE) && action == GLFW_PRESS)
+    else if(((key==GLFW_KEY_RIGHT || key==GLFW_KEY_D) || (key==GLFW_KEY_LEFT || key==GLFW_KEY_A)) && (action == GLFW_RELEASE))
+    {
+        state[0] = false;
+        state[1] = false;
+    }
+
+
+    if((key==GLFW_KEY_SPACE) && action == GLFW_PRESS)
     {
         if(!state[2])
         {
@@ -52,31 +50,30 @@ void resize (GLFWwindow * window,int width, int height)
     glViewport(0, 0, width, height);
 }
 
+
 //Check setting. If "full" make full screen window, null not full screen
 GLFWwindow * createDisplay(vector<string> fileData)
 {
     GLFWwindow * window;
     string name="test";
 
-    //if(fileData.at(0)=="full")
-    //{
-    //    window=createMonitor(name.c_str());
-    //}
+    if(fileData.at(0)=="full")
+    {
+        window=createMonitor(name.c_str());
+    }
 
-    //else
-    //{
-    window=createWindow(name.c_str());
-    //}
+    else
+    {
+        window=createWindow(name.c_str());
+    }
 
     return window;
 }
 
-
 /*
  TODO:
-     * debugging texture
      * make the platform move smoothly +-
-     * problems with blocks->remove(*it)
+     * make the better physics
 */
 
 int main()

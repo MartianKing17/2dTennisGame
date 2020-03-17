@@ -50,15 +50,16 @@ void Platform::update()
     cx = worldModel[0][0] * (float)objProjCoor.first + worldModel[3][0] ;
     cy = worldModel[1][1]  * (float)objProjCoor.second + worldModel[3][1];
 
-    static const float lim = 0.7f;
+    const float lim = 0.738f;
+
     if(motionSet[0] && a > -lim)
     {
-        a+=-0.025f;
+        a+=-0.02f;
     }
 
     if(motionSet[1] && a < lim)
     {
-        a+=0.025f;
+        a+=0.02f;
     }
 }
 

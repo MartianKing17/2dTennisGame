@@ -8,7 +8,7 @@ using namespace std;
 
 Shader::Shader(const std::string vertexPath,const std::string fragmentPath)
 {
-    string * shaders;
+    string * shaders = nullptr;
 
     try
     {
@@ -35,7 +35,7 @@ Shader::Shader(const std::string vertexPath,const std::string fragmentPath)
 
     if(!success)
     {
-        glGetProgramInfoLog(this->program,512,NULL,infoLog);
+        glGetProgramInfoLog(this->program,512, nullptr,infoLog);
         cout<<infoLog<<endl;
     }
 
@@ -78,7 +78,7 @@ std::string* Shader::readShader(const std::string vertexPath, const std::string 
 GLuint Shader::createShader(const GLchar * shaderSource,GLuint shaderType)
 {
     GLuint shader=glCreateShader(shaderType);
-    glShaderSource(shader,1,&shaderSource,NULL);
+    glShaderSource(shader,1,&shaderSource, nullptr);
     glCompileShader(shader);
 
     GLint success;
@@ -87,11 +87,27 @@ GLuint Shader::createShader(const GLchar * shaderSource,GLuint shaderType)
 
     if(!success)
     {
-        glGetShaderInfoLog(shader,512,NULL,infoLog);
+        glGetShaderInfoLog(shader,512,nullptr,infoLog);
         cout<<infoLog<<endl;
     }
 
     return shader;
+}
+
+GLuint Shader::getProgram()
+{
+    return this->program;
+}
+
+void Shader::operator=(const Shader &other)
+{
+    this->program = other.program;
+}
+
+void Shader::operator=(Shader && other) noexcept
+{
+    this->program = other.program;
+    other.program = 0;
 }
 
 
