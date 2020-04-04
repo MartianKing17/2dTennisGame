@@ -11,6 +11,7 @@ float *getBallPoint(const Ball *ball);
 float *getBlockPoint(const Block &block);
 bool *findDistance(const float *ballPoint, const float *blockPoint, const size_t len);
 bool * getSegment(const float *ballPoint, const float *blockPoint, const size_t len);
+int sigma(float x);
 
 list<Block> * createBlocks(GLFWwindow *window)
 {
@@ -149,8 +150,22 @@ bool checkTouch(Ball *ball, Platform *platform, list<Block> *blocks)
     }
     else if(abs(ball->getVerticalPlace() + ball->getRadius() - 1.) <= 0.01)
     {
-        gorizontalSpeed = -0.01;
-        verticalSpeed   = -0.01;
+        const float lenWall = 2.f;
+        const float x = abs(ball->getGorizontalPlace());
+        float angle = x - 0.5f * lenWall;
+        angle /= 0.5f * lenWall;
+        angle = acos(angle);
+        gorizontalSpeed = cos(angle) * speed;
+        verticalSpeed   = sin(angle) * speed - 0.01;
+
+       /* if(abs(gorizontalSpeed) <= 0.001)
+            gorizontalSpeed += 0.01 * sigma(gorizontalSpeed);
+
+        if(abs(verticalSpeed) <= 0.001)
+            verticalSpeed += 0.01 * sigma(verticalSpeed);*/
+
+        //gorizontalSpeed = -0.01;
+        //verticalSpeed   = -0.01;
         ball->setSpeed(gorizontalSpeed, verticalSpeed);
     }
     else if(abs(ball->getVerticalPlace() - ball->getRadius() - (-1)) <= 0.01)
@@ -161,14 +176,42 @@ bool checkTouch(Ball *ball, Platform *platform, list<Block> *blocks)
 
     if(abs(ball->getGorizontalPlace() - ball->getRadius() - (-1)) <= 0.01)
     {
-        gorizontalSpeed =  0.01;
-        verticalSpeed   = -0.01;
+        const float lenWall = 2.f;
+        const float x = abs(ball->getVerticalPlace());
+        float angle = x - 0.5f * lenWall;
+        angle /= 0.5f * lenWall;
+        angle = acos(angle);
+        gorizontalSpeed = abs(cos(angle) * speed);
+        verticalSpeed   = sin(angle) * speed - 0.01;
+
+        if(abs(gorizontalSpeed) <= 0.001)
+            gorizontalSpeed += 0.01 * sigma(gorizontalSpeed);
+
+        if(abs(verticalSpeed) <= 0.001)
+            verticalSpeed += 0.01 * sigma(verticalSpeed);
+
+        //gorizontalSpeed =  0.01;
+        //verticalSpeed   = -0.01;
         ball->setSpeed(gorizontalSpeed, verticalSpeed);
     }
     else if(abs(ball->getGorizontalPlace() + ball->getRadius() - 1) <= 0.01)
     {
-        gorizontalSpeed = -0.01;
-        verticalSpeed   =  0.01;
+        const float lenWall = 2.f;
+        const float x = abs(ball->getVerticalPlace());
+        float angle = x - 0.5f * lenWall;
+        angle /= 0.5f * lenWall;
+        angle = acos(angle);
+        gorizontalSpeed = cos(angle) * speed;
+        verticalSpeed   = sin(angle) * speed - 0.01;
+
+        if(abs(gorizontalSpeed) <= 0.001)
+            gorizontalSpeed += 0.01 * sigma(gorizontalSpeed);
+
+        if(abs(verticalSpeed) <= 0.001)
+            verticalSpeed += 0.01 * sigma(verticalSpeed);
+
+        //gorizontalSpeed = -0.01;
+        //verticalSpeed   =  0.01;
         ball->setSpeed(gorizontalSpeed, verticalSpeed);
     }
 
@@ -412,4 +455,18 @@ bool * getSegment(const float *ballPoint, const float *blockPoint, const size_t 
     isSegment[3] = c;
 
     return isSegment;
+}
+
+int sigma(float x)
+{
+    if(x > 0)
+        return 1;
+    else if(x < 0)
+    {
+        return -1;
+    }
+    else
+    {
+        return 0;
+    }
 }
