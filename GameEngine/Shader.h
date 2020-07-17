@@ -9,7 +9,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-#include <GLEW/glew/include/GL/glew.h>
+#include <GL/glew.h>
 
 class Shader
 {

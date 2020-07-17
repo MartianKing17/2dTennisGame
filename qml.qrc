@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+	<file>arkanoid_background.png</file>
+	<file>arkanoid-ico.ico</file>
+    </qresource>
+</RCC>

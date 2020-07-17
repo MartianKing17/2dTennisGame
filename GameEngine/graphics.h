@@ -10,11 +10,10 @@
 #include <fstream>
 #include <utility>
 #include <vector>
-#include <GLEW/glew/include/GL/glew.h>
+#include <GL/glew.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include <GLFW/glfw/include/GLFW/glfw3.h>
-
+#include <GLFW/glfw3.h>
 void construct();
 GLFWwindow * createMonitor(const char * title);
 GLFWwindow * createWindow(const char * title);

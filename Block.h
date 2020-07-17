@@ -1,9 +1,9 @@
 //
-// Created by maxim on 03.07.2019.
+// Created by maxim on 16.07.2020.
 //
 
-#ifndef INC_2DTENNISGAME_BLOCK_H
-#define INC_2DTENNISGAME_BLOCK_H
+#ifndef ARKANOID_BLOCK_H
+#define ARKANOID_BLOCK_H
 
 #include "BaseGameObject.h"
 
@@ -12,8 +12,8 @@ class Block:public BaseGameObject
 {
 
 public:
-    Block() = delete;
-    Block(ObjectCreater object, GLFWwindow *mainwindow, Shader shader);
+    Block() = default;
+    Block(GLFWwindow *mainwindow, RenderModel *renderModel);
     Block(const Block & other);
     Block(Block && other);
     Block & operator =(const Block & other);
@@ -24,5 +24,4 @@ public:
     virtual ~Block() = default;
 };
 
-
-#endif //INC_2DTENNISGAME_BLOCK_H
+#endif //ARKANOID_BLOCK_H

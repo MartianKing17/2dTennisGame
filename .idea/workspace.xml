@@ -1,31 +1,224 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="2dTennisGame" targetName="2dTennisGame" />
+      <config projectName="Arkanoid" targetName="Arkanoid_autogen" />
+      <config projectName="Arkanoid" targetName="GameEngine" />
+      <config projectName="Arkanoid" targetName="GameEngine_autogen" />
+      <config projectName="Arkanoid" targetName="Arkanoid" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration PROFILE_NAME="Debug-Linux" CONFIG_NAME="Debug" TOOLCHAIN_NAME="Linux" />
-      <configuration PROFILE_NAME="Release-Linux" CONFIG_NAME="Release" TOOLCHAIN_NAME="Linux" />
-      <configuration PROFILE_NAME="Debug-Windows" CONFIG_NAME="Debug" TOOLCHAIN_NAME="Windows" />
-      <configuration PROFILE_NAME="Release-Windows" CONFIG_NAME="Release" TOOLCHAIN_NAME="Windows" />
+      <configuration PROFILE_NAME="Debug-Linux" CONFIG_NAME="Debug" TOOLCHAIN_NAME="Linux" GENERATION_OPTIONS="-DCMAKE_PREFIX_PATH=/home/maxim/Qt/5.12.6/gcc_64/lib/cmake" />
+      <configuration PROFILE_NAME="Release-Linux" CONFIG_NAME="Release" TOOLCHAIN_NAME="Linux" GENERATION_OPTIONS="-DCMAKE_PREFIX_PATH=/home/maxim/Qt/5.12.6/gcc_64/lib/cmake" />
+      <configuration PROFILE_NAME="Debug-Windows" CONFIG_NAME="Debug" TOOLCHAIN_NAME="Windows" GENERATION_OPTIONS="-DCMAKE_PREFIX_PATH=/home/maxim/Qt/5.12.6/gcc_64/lib/cmake" />
+      <configuration PROFILE_NAME="Release-Windows" CONFIG_NAME="Release" TOOLCHAIN_NAME="Windows" GENERATION_OPTIONS="-DCMAKE_PREFIX_PATH=/home/maxim/Qt/5.12.6/gcc_64/lib/cmake" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc884d46-593c-4f0a-88ba-238f45b9dd0c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Ball.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Ball.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BaseGameObject.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BaseGameObject.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Block.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Block.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Game.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameEngine/RenderModel.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GameEngine/RenderModel.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Platform.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Platform.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/arkanoid-ico.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/arkanoid_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug-linux/Arkanoid_autogen/mocs_compilation.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake-build-debug-linux/GameEngine/GameEngine_autogen/mocs_compilation.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/init.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/init.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/levels.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/levels.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.qml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/path/shaderBall.vs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/path/shaderFragBall.fragment" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/path/shaderFragPlatform.fragment" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/path/shaderPlatform.vs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qml.qrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/texture/ball.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/texture/block_blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/texture/block_green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/texture/block_grey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/texture/block_pink.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/texture/block_red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/texture/block_yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/texture/met_cube(crop).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/texture/platform.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/texture/platform2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Ball.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BaseGameObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BaseGameObject.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectCreater.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectCreater.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectCreater.h" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectCreater.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platform.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Platform.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/Ball.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/Ball.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/BaseGameObject.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/BaseGameObject.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/Block.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/Block.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/ObjectCreater.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/ObjectCreater.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/Platform.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/Platform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/Shader.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/Shader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/createGameLoop.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/createGameLoop.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameEngine/graphics.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameEngine/graphics.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/2dTennisGame" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/2dTennisGame" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createGameLoop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/createGameLoop.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/2dTennisGame.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/2dTennisGame.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/C.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/2dTennisGame.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/3.13.4/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/3.13.4/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/3.13.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/3.13.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/3.13.4/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/3.13.4/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/3.13.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-linux/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-linux/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/2dTennisGame.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/2dTennisGame.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/2dTennisGame.dir/C.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/2dTennisGame.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/2dTennisGame.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/2dTennisGame.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/2dTennisGame.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/2dTennisGame.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/2dTennisGame.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/2dTennisGame.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/2dTennisGame.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/2dTennisGame.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/3.13.4/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/3.13.4/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/3.13.4/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/3.13.4/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/3.13.4/CompilerIdC/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/3.13.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/3.13.4/CompilerIdCXX/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/CMakeError.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/CMakeError.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/Progress/1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/Progress/13" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/Progress/2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/Progress/3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/Progress/5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/Progress/8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/Progress/count.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug-windows/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug-windows/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/2dTennisGame.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-linux/2dTennisGame.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-linux/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/2dTennisGame.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/2dTennisGame.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/2dTennisGame.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/2dTennisGame.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/2dTennisGame.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/2dTennisGame.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/2dTennisGame.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/3.13.4/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/3.13.4/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/3.13.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/3.13.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/3.13.4/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/3.13.4/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/3.13.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-linux/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-linux/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-linux/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-linux/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/2dTennisGame.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/2dTennisGame.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/2dTennisGame.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/2dTennisGame.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/2dTennisGame.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/2dTennisGame.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/2dTennisGame.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/2dTennisGame.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/2dTennisGame.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/3.13.4/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/3.13.4/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/3.13.4/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/3.13.4/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/3.13.4/CompilerIdC/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/3.13.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/3.13.4/CompilerIdCXX/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/CMakeError.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/CMakeError.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-release-windows/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release-windows/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <list id="3b13156d-e57d-4979-9869-090e0b2198c8" name="Revert &quot;Add timer and make better code&quot;" comment="Revert &quot;Add timer and make better code&quot;&#10;&#10;This reverts commit cf7b2b79" />
@@ -113,26 +306,23 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="$PROJECT_DIR$/.idea" />
-      </set>
-    </option>
-  </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="YilZvECa" />
   </component>
   <component name="ProjectId" id="1Svfz862pY3klYkJD0WxN80JFlQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GameLibrary" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cmake-build-debug-linux" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -142,45 +332,48 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="Push.Settings">
     <option name="SHOW_DETAILS_PANEL" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cmake-build-debug-linux" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programm_project\C++_project\GameProject\2dTennisGame" />
       <recent name="D:\Programm_project\C++_project\GameProject\2dTennisGame\include" />
       <recent name="D:\Programm_project\C++_project\GameProject\2dTennisGame\bin" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.Debug">
-    <configuration name="2dTennisGame" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="2dTennisGame" TARGET_NAME="2dTennisGame" CONFIG_NAME="Debug-Linux" RUN_TARGET_PROJECT_NAME="2dTennisGame" RUN_TARGET_NAME="2dTennisGame">
+  <component name="RunManager" selected="CMake Application.Arkanoid">
+    <configuration name="Arkanoid" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Arkanoid" TARGET_NAME="Arkanoid" CONFIG_NAME="Debug-Linux" RUN_TARGET_PROJECT_NAME="Arkanoid" RUN_TARGET_NAME="Arkanoid">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Debug" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="2dTennisGame" TARGET_NAME="2dTennisGame" CONFIG_NAME="Debug-Linux" RUN_TARGET_PROJECT_NAME="2dTennisGame" RUN_TARGET_NAME="2dTennisGame">
+    <configuration name="Arkanoid_autogen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Arkanoid" TARGET_NAME="Arkanoid_autogen" CONFIG_NAME="Debug-Linux">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameEngine" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Arkanoid" TARGET_NAME="GameEngine" CONFIG_NAME="Debug-Linux">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameEngine_autogen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Arkanoid" TARGET_NAME="GameEngine_autogen" CONFIG_NAME="Debug-Linux">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.Debug" />
-      <item itemvalue="CMake Application.2dTennisGame" />
+      <item itemvalue="CMake Application.Arkanoid" />
+      <item itemvalue="CMake Application.Arkanoid_autogen" />
+      <item itemvalue="CMake Application.GameEngine" />
+      <item itemvalue="CMake Application.GameEngine_autogen" />
     </list>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -256,6 +449,11 @@
       <workItem from="1583833365333" duration="18699000" />
       <workItem from="1584099242844" duration="6790000" />
       <workItem from="1584276944345" duration="9906000" />
+      <workItem from="1594808589825" duration="11942000" />
+      <workItem from="1594890339098" duration="16898000" />
+      <workItem from="1594909338760" duration="5070000" />
+      <workItem from="1594974960641" duration="3814000" />
+      <workItem from="1594981199588" duration="1526000" />
     </task>
     <task id="LOCAL-00001" summary="The first project commit">
       <created>1558522713282</created>
@@ -340,7 +538,7 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -382,17 +580,15 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-    <option name="OPEN_TABS">
-      <set>
-        <option value="1" />
-      </set>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
     </option>
     <option name="RECENT_FILTERS">
       <map>
@@ -414,10 +610,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="The first project commit" />
     <MESSAGE value="More crossing- more money!" />
     <MESSAGE value="Make better architecture!!!" />
@@ -430,175 +627,81 @@
     <option name="LAST_COMMIT_MESSAGE" value="Adding bad physics and the platform moves smoother" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="278" y="59" width="800" height="684" key="#Notifications" timestamp="1583668914878">
+    <state x="141" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594816784475">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
-    <state x="278" y="59" width="800" height="684" key="#Notifications/0.27.1366.741@0.27.1366.741" timestamp="1583668914878" />
-    <state x="441" y="50" key="#xdebugger.evaluate" timestamp="1583695476867">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="441" y="50" key="#xdebugger.evaluate/0.27.1366.741@0.27.1366.741" timestamp="1583695476867" />
-    <state x="324" y="157" width="935" height="741" key="CommitChangelistDialog2" timestamp="1584294580676">
+    <state x="141" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.741@0.27.1366.741" timestamp="1594816784475" />
+    <state x="533" y="362" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594905427326">
       <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state x="261" y="27" width="935" height="741" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1583854756289" />
-    <state x="324" y="157" width="942" height="919" key="CommitChangelistDialog2/0.27.1600.1173@0.27.1600.1173" timestamp="1584294580676" />
-    <state x="127" y="90" width="1092" height="629" key="DiffContextDialog" timestamp="1583669504395">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="127" y="90" width="1092" height="629" key="DiffContextDialog/0.27.1366.741@0.27.1366.741" timestamp="1583669504395" />
-    <state x="466" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1583852856348">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="466" y="155" width="424" height="491" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1583852856348" />
-    <state x="474" y="303" key="GitRewordDialog" timestamp="1583671472702">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="474" y="303" key="GitRewordDialog/0.27.1366.741@0.27.1366.741" timestamp="1583671472702" />
-    <state width="1320" height="211" key="GridCell.Tab.-1.bottom" timestamp="1581536542512">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state width="1320" height="211" key="GridCell.Tab.-1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1581536542512" />
-    <state width="1320" height="211" key="GridCell.Tab.-1.center" timestamp="1581536542511">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state width="1320" height="211" key="GridCell.Tab.-1.center/0.27.1366.741@0.27.1366.741" timestamp="1581536542511" />
-    <state width="1320" height="211" key="GridCell.Tab.-1.left" timestamp="1581536542511">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state width="1320" height="211" key="GridCell.Tab.-1.left/0.27.1366.741@0.27.1366.741" timestamp="1581536542511" />
-    <state width="1320" height="211" key="GridCell.Tab.-1.right" timestamp="1581536542511">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state width="1320" height="211" key="GridCell.Tab.-1.right/0.27.1366.741@0.27.1366.741" timestamp="1581536542511" />
-    <state width="1554" height="266" key="GridCell.Tab.0.bottom" timestamp="1584294459176">
+    <state x="533" y="362" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1600.1173@0.27.1600.1173" timestamp="1594905427326" />
+    <state x="294" y="464" width="424" height="491" key="FileChooserDialogImpl" timestamp="1594893281632">
       <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1583854814516" />
-    <state width="1554" height="266" key="GridCell.Tab.0.bottom/0.27.1600.1173@0.27.1600.1173" timestamp="1584294459176" />
-    <state width="1554" height="266" key="GridCell.Tab.0.center" timestamp="1584294459175">
+    <state x="294" y="464" width="424" height="491" key="FileChooserDialogImpl/0.27.1600.1173@0.27.1600.1173" timestamp="1594893281632" />
+    <state width="1554" height="332" key="GridCell.Tab.0.bottom" timestamp="1594982757165">
       <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1583854814515" />
-    <state width="1554" height="266" key="GridCell.Tab.0.center/0.27.1600.1173@0.27.1600.1173" timestamp="1584294459175" />
-    <state width="1554" height="266" key="GridCell.Tab.0.left" timestamp="1584294459175">
+    <state width="1320" height="336" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1594821631163" />
+    <state width="1554" height="332" key="GridCell.Tab.0.bottom/0.27.1600.1173@0.27.1600.1173" timestamp="1594982757165" />
+    <state width="1554" height="332" key="GridCell.Tab.0.center" timestamp="1594982757164">
       <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1583854814514" />
-    <state width="1554" height="266" key="GridCell.Tab.0.left/0.27.1600.1173@0.27.1600.1173" timestamp="1584294459175" />
-    <state width="1554" height="266" key="GridCell.Tab.0.right" timestamp="1584294459176">
+    <state width="1320" height="336" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1594821631162" />
+    <state width="1554" height="332" key="GridCell.Tab.0.center/0.27.1600.1173@0.27.1600.1173" timestamp="1594982757164" />
+    <state width="1554" height="332" key="GridCell.Tab.0.left" timestamp="1594982757163">
       <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1583854814515" />
-    <state width="1554" height="266" key="GridCell.Tab.0.right/0.27.1600.1173@0.27.1600.1173" timestamp="1584294459176" />
-    <state width="1554" height="378" key="GridCell.Tab.1.bottom" timestamp="1584291095790">
+    <state width="1320" height="336" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1594821631162" />
+    <state width="1554" height="332" key="GridCell.Tab.0.left/0.27.1600.1173@0.27.1600.1173" timestamp="1594982757163" />
+    <state width="1554" height="332" key="GridCell.Tab.0.right" timestamp="1594982757165">
       <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1583854814517" />
-    <state width="1554" height="378" key="GridCell.Tab.1.bottom/0.27.1600.1173@0.27.1600.1173" timestamp="1584291095790" />
-    <state width="1554" height="378" key="GridCell.Tab.1.center" timestamp="1584291095789">
+    <state width="1320" height="336" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1594821631163" />
+    <state width="1554" height="332" key="GridCell.Tab.0.right/0.27.1600.1173@0.27.1600.1173" timestamp="1594982757165" />
+    <state width="1554" height="339" key="GridCell.Tab.1.bottom" timestamp="1594981442134">
       <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741" timestamp="1583854814516" />
-    <state width="1554" height="378" key="GridCell.Tab.1.center/0.27.1600.1173@0.27.1600.1173" timestamp="1584291095789" />
-    <state width="1554" height="378" key="GridCell.Tab.1.left" timestamp="1584291095788">
+    <state width="1320" height="336" key="GridCell.Tab.1.bottom/0.27.1366.741@0.27.1366.741" timestamp="1594821631165" />
+    <state width="1554" height="339" key="GridCell.Tab.1.bottom/0.27.1600.1173@0.27.1600.1173" timestamp="1594981442134" />
+    <state width="1554" height="339" key="GridCell.Tab.1.center" timestamp="1594981442133">
       <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741" timestamp="1583854814516" />
-    <state width="1554" height="378" key="GridCell.Tab.1.left/0.27.1600.1173@0.27.1600.1173" timestamp="1584291095788" />
-    <state width="1554" height="378" key="GridCell.Tab.1.right" timestamp="1584291095789">
+    <state width="1320" height="336" key="GridCell.Tab.1.center/0.27.1366.741@0.27.1366.741" timestamp="1594821631164" />
+    <state width="1554" height="339" key="GridCell.Tab.1.center/0.27.1600.1173@0.27.1600.1173" timestamp="1594981442133" />
+    <state width="1554" height="339" key="GridCell.Tab.1.left" timestamp="1594981442132">
       <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state width="1320" height="210" key="GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741" timestamp="1583854814517" />
-    <state width="1554" height="378" key="GridCell.Tab.1.right/0.27.1600.1173@0.27.1600.1173" timestamp="1584291095789" />
-    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.bottom" timestamp="1581536722692">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.bottom/0.27.1366.741@0.27.1366.741" timestamp="1581536722692" />
-    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.center" timestamp="1581536722690">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.center/0.27.1366.741@0.27.1366.741" timestamp="1581536722690" />
-    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.left" timestamp="1581536722689">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.left/0.27.1366.741@0.27.1366.741" timestamp="1581536722689" />
-    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.right" timestamp="1581536722691">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="288" y="311" width="861" height="420" key="GridCell.Tab.2.right/0.27.1366.741@0.27.1366.741" timestamp="1581536722691" />
-    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.bottom" timestamp="1581536716693">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.bottom/0.27.1366.741@0.27.1366.741" timestamp="1581536716693" />
-    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.center" timestamp="1581536716691">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.center/0.27.1366.741@0.27.1366.741" timestamp="1581536716691" />
-    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.left" timestamp="1581536716691">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.left/0.27.1366.741@0.27.1366.741" timestamp="1581536716691" />
-    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.right" timestamp="1581536716692">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="288" y="590" width="861" height="420" key="GridCell.Tab.3.right/0.27.1366.741@0.27.1366.741" timestamp="1581536716692" />
-    <state x="526" y="314" width="303" height="174" key="VCS.ChangelistChooser" timestamp="1583671452009">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="526" y="314" width="303" height="174" key="VCS.ChangelistChooser/0.27.1366.741@0.27.1366.741" timestamp="1583671452009" />
-    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1583854776030">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="278" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1366.741@0.27.1366.741" timestamp="1583854776030" />
-    <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1583669937162">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.27.1366.741@0.27.1366.741" timestamp="1583669937162" />
-    <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1583666642639">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="100" y="127" width="1166" height="541" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.27.1366.741@0.27.1366.741" timestamp="1583666642639" />
-    <state x="451" y="317" width="454" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583671398055">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="451" y="317" width="454" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1366.741@0.27.1366.741" timestamp="1583671398055" />
-    <state x="288" y="590" width="861" height="457" key="dock-window-1" timestamp="1581536732336">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="288" y="590" width="861" height="457" key="dock-window-1/0.27.1366.741@0.27.1366.741" timestamp="1581536732336" />
-    <state x="459" y="428" width="861" height="457" key="dock-window-2" timestamp="1581536749319">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="459" y="428" width="861" height="457" key="dock-window-2/0.27.1366.741@0.27.1366.741" timestamp="1581536749319" />
-    <state x="325" y="191" width="705" height="420" key="git4idea.merge.GitPullDialog" timestamp="1583671119750">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="325" y="191" width="705" height="420" key="git4idea.merge.GitPullDialog/0.27.1366.741@0.27.1366.741" timestamp="1583671119750" />
-    <state x="389" y="243" width="588" height="316" key="git4idea.ui.GitTagDialog" timestamp="1583666585709">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="389" y="243" width="588" height="316" key="git4idea.ui.GitTagDialog/0.27.1366.741@0.27.1366.741" timestamp="1583666585709" />
-    <state x="427" y="27" width="501" height="699" key="refactoring.ChangeSignatureDialog" timestamp="1583850947926">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="427" y="27" width="501" height="699" key="refactoring.ChangeSignatureDialog/0.27.1366.741@0.27.1366.741" timestamp="1583850947926" />
-    <state x="500" y="49" width="501" height="720" key="refactoring.ChangeSignatureDialog/0.27.1600.1173@0.27.1600.1173" timestamp="1581971976718" />
-    <state x="464" y="282" key="run.anything.popup" timestamp="1584291248170">
+    <state width="1320" height="336" key="GridCell.Tab.1.left/0.27.1366.741@0.27.1366.741" timestamp="1594821631163" />
+    <state width="1554" height="339" key="GridCell.Tab.1.left/0.27.1600.1173@0.27.1600.1173" timestamp="1594981442132" />
+    <state width="1554" height="339" key="GridCell.Tab.1.right" timestamp="1594981442133">
       <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state x="464" y="282" key="run.anything.popup/0.27.1600.1173@0.27.1600.1173" timestamp="1584291248170" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1583765077972">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1320" height="336" key="GridCell.Tab.1.right/0.27.1366.741@0.27.1366.741" timestamp="1594821631164" />
+    <state width="1554" height="339" key="GridCell.Tab.1.right/0.27.1600.1173@0.27.1600.1173" timestamp="1594981442133" />
+    <state x="0" y="463" width="1022" height="737" key="SettingsEditor" timestamp="1594976498184">
+      <screen x="0" y="27" width="1600" height="1173" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.27.1366.741@0.27.1366.741" timestamp="1583765077972" />
+    <state x="0" y="463" width="1022" height="737" key="SettingsEditor/0.27.1600.1173@0.27.1600.1173" timestamp="1594976498184" />
+    <state width="800" height="586" key="XDebugger.FullValuePopup" timestamp="1594897074381">
+      <screen x="0" y="27" width="1600" height="1173" />
+    </state>
+    <state width="800" height="586" key="XDebugger.FullValuePopup/0.27.1600.1173@0.27.1600.1173" timestamp="1594897074381" />
+    <state x="941" y="274" width="432" height="436" key="refactoring.ChangeSignatureDialog" timestamp="1594982632991">
+      <screen x="0" y="27" width="1600" height="1173" />
+    </state>
+    <state x="803" y="183" width="432" height="436" key="refactoring.ChangeSignatureDialog/0.27.1366.741@0.27.1366.741" timestamp="1594821514459" />
+    <state x="941" y="274" width="432" height="436" key="refactoring.ChangeSignatureDialog/0.27.1600.1173@0.27.1600.1173" timestamp="1594982632991" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="dataFile" language="ObjectiveC" />
-        <watch expression="read" />
+        <watch expression="read" language="ObjectiveC" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.zxy.ijplugin.zApiForSpring.settings.module.ProjectSettings">
+    <option name="miniprogramType" value="QQ" />
   </component>
 </project>

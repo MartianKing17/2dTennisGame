@@ -3,12 +3,9 @@ project(GameEngine VERSION 0.1.0)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
 include_directories(${CMAKE_SOURCE_DIR}/include)
-set(SOIL_DIR "include/SOIL.h")
-set(GLEW_DIR "include/glew.h")
-set(GLFW_DIR "include/glfw3.h")
 set(SOIL_LIBRARIES /home/maxim/Cpp-Frameworks/OpenGL/soil/lib/libSOIL.a)
 
 
@@ -32,10 +29,10 @@ elseif(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
             ${SOIL_LIBRARIES})
 endif()
 
-add_library(GameEngine SHARED Ball.cpp Ball.h BaseGameObject.cpp BaseGameObject.h Block.cpp Block.h
-        createGameLoop.cpp createGameLoop.h filedata.cpp filedata.h ObjectCreater.cpp ObjectCreater.h
-        Platform.cpp Platform.h Shader.cpp Shader.h graphics.cpp graphics.h readfile.cpp readfile.h
+add_library(GameEngine SHARED
+        filedata.cpp filedata.h
+        Shader.cpp Shader.h graphics.cpp graphics.h readfile.cpp readfile.h
         include/SOIL.h include/SOIL.c include/image_DXT.h include/image_DXT.c include/image_helper.h
-        include/image_helper.c include/stb_image_aug.h include/stb_image_aug.c include/stbi_DDS_aug.h include/stbi_DDS_aug_c.h )
+        include/image_helper.c include/stb_image_aug.h include/stb_image_aug.c include/stbi_DDS_aug.h include/stbi_DDS_aug_c.h RenderModel.cpp RenderModel.h)
 
 install(TARGETS GameEngine DESTINATION bin)
