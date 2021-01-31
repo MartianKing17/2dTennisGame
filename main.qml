@@ -1,28 +1,26 @@
 import QtQuick 2.10
 import QtQuick.Window 2.10
 import QtQuick.Controls 2.10
-import gameFunc 1.0
+import Game 1.0
 
-Window
-{
+Window {
     id: mainWindow
     visible: true
     width: 600
     height: 450
 
-
-    property int buttonNum: 4
-    property int margleft: buttonWidth/10
-    property int buttonWidth: mainWindow.width/3.5
-    property int buttonHeight: mainWindow.height/9
-    property int margleTop: mainWindow.height/40
+    property int buttonNum: 3
+    property int margleft: buttonWidth / 10
+    property int buttonWidth: mainWindow.width / 3.5
+    property int buttonHeight: mainWindow.height / 9
+    property int margleTop: mainWindow.height / 40
 
     function f()
     {
-        var val = buttonHeight*buttonNum + margleTop*(buttonNum-1)
+        var val = buttonHeight * buttonNum + margleTop * (buttonNum-1)
         val = mainWindow.height - val
         val /= 2
-        val = mainWindow.height/val
+        val = mainWindow.height / val
         return val
     }
 
@@ -35,25 +33,25 @@ Window
 
     Game
     {
-      id:game
+        id: game
     }
 
-    Button
-    {
-        id:singlePlayButton
-        text: qsTr("Single-Play")
+    Button {
+        id: singlePlayButton
+        text: qsTr("Single Play")
         onClicked: {
             mainWindow.hide()
-            if(game.startSinglePlay() === true)
-            {
+            if(game.startSinglePlay()) {
                 mainWindow.show()
+            } else {
+                mainWindow.close()
             }
         }
 
         width: buttonWidth
         height: buttonHeight
         anchors.top: parent.top
-        anchors.topMargin: parent.height/f()
+        anchors.topMargin: parent.height / f()
         anchors.left: parent.left
         anchors.leftMargin: margleft
 
@@ -72,9 +70,7 @@ Window
             verticalAlignment: Text.AlignVCenter
 
             elide: Text.ElideRight
-
         }
-
 
         background: Rectangle {
 
@@ -88,24 +84,14 @@ Window
 
             border.width: 1
 
-            radius: (buttonWidth - buttonHeight)/16
+            radius: (buttonWidth - buttonHeight) / 16
         }
-
     }
 
-    Button
-    {
-        id:multiPlayButton
-        text: "Muiti-Play"
-        onClicked:
-        {
-            mainWindow.hide()
-
-            if (game.startMultiPlay() === true)
-            {
-                mainWindow.show()
-            }
-        }
+    Button {
+        id: achievementButton
+        text: "Achievement"
+        onClicked: gameEvent.achievementPage()
 
         width: buttonWidth
         height: buttonHeight
@@ -132,7 +118,6 @@ Window
 
         }
 
-
         background: Rectangle {
 
             implicitWidth: buttonWidth
@@ -150,58 +135,8 @@ Window
 
     }
 
-    Button
-    {
-        id:achievementButton
-        text: "Achievement"
-        onClicked: gameEvent.achievementPage()
-
-        width: buttonWidth
-        height: buttonHeight
-        anchors.top: multiPlayButton.bottom
-        anchors.topMargin: margleTop
-        anchors.left: parent.left
-        anchors.leftMargin:  margleft
-
-        contentItem: Text {
-
-            text: parent.text
-
-            font: parent.font
-
-            opacity: enabled ? 1.0 : 0.3
-
-            color: parent.down ? "#FA8072" : "#000000"
-
-            horizontalAlignment: Text.AlignHCenter
-
-            verticalAlignment: Text.AlignVCenter
-
-            elide: Text.ElideRight
-
-        }
-
-
-        background: Rectangle {
-
-            implicitWidth: buttonWidth
-
-            implicitHeight: buttonHeight
-
-            opacity: 0.5
-
-            border.color: parent.down ? "#FA8072" : "#000000"
-
-            border.width: 1
-
-            radius: (buttonWidth - buttonHeight)/16
-        }
-
-    }
-
-    Button
-    {
-        id:settingButton
+    Button {
+        id: settingButton
         text: "Setting"
         onClicked: gameEvent.settingMenu()
 
@@ -229,7 +164,6 @@ Window
             elide: Text.ElideRight
 
         }
-
 
         background: Rectangle {
 

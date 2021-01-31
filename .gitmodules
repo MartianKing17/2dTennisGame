@@ -1,0 +1,3 @@
+[submodule "ArkanoidCore/GemulingEngine"]
+	path = ArkanoidCore/GemulingEngine
+	url = https://github.com/MartianKing17/GemulingEngine.git

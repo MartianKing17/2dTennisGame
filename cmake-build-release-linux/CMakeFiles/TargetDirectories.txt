@@ -1,3 +1,0 @@
-/home/maxim/CppProjects/GameProject/2dTennisGame/cmake-build-release-linux/CMakeFiles/rebuild_cache.dir
-/home/maxim/CppProjects/GameProject/2dTennisGame/cmake-build-release-linux/CMakeFiles/2dTennisGame.dir
-/home/maxim/CppProjects/GameProject/2dTennisGame/cmake-build-release-linux/CMakeFiles/edit_cache.dir
