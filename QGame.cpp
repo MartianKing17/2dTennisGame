@@ -4,15 +4,28 @@
 
 #include "QGame.h"
 #include <QMessageBox>
+#include <fstream>
 
-QGame::QGame(QObject * parent) : QObject(parent), m_game(nullptr)
+QGame::QGame(QObject * parent)
+    : QObject(parent), m_game(nullptr), m_level(0), m_isGood(true), m_windowMode("")
 {
-    m_game = new Game();
+    try {
+        m_game = std::make_unique<Game>();
+    } catch (const std::runtime_error& e) {
+        QMessageBox::critical(nullptr, "Error", e.what());
+        m_isGood = false;
+    }
 }
 bool QGame::startSinglePlay()
 {
+    bool res{};
+    int result{};
+    if (!m_isGood) {
+        return m_isGood;
+    }
+
     try {
-        m_game->startSinglePlay();
+        result = m_game->startSinglePlay();
     } catch (const std::runtime_error& e) {
         QMessageBox::critical(nullptr, "Error", e.what());
         return false;
@@ -21,15 +34,10 @@ bool QGame::startSinglePlay()
         return false;
     }
 
-    return true;
-}
+    if (result == 2) {
+        res = false;
+        emit maxLevelChanged(getLevel());
+    }
 
-void QGame::settingMenu()
-{
-    m_game->settingMenu();
-}
-
-QGame::~QGame()
-{
-    delete m_game;
+    return res;
 }

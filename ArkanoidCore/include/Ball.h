@@ -12,8 +12,8 @@
 class Ball : public BaseGameObject
 {
 public:
-    Ball(Render *renderModel);
-    void update() override;
+    Ball(std::unique_ptr<Render> &&renderModel);
+    void update();
     void setSpeed(float horizontalSpeed, float verticalSpeed);
 private:
     float m_verticalSpeed;

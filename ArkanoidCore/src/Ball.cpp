@@ -4,26 +4,23 @@
 
 #include "../include/Ball.h"
 
-Ball::Ball(Render *renderModel)
-        : BaseGameObject(renderModel), m_verticalSpeed(-0.01f), m_horizontalSpeed(0)
+Ball::Ball(std::unique_ptr<Render> &&renderModel)
+        : BaseGameObject(std::move(renderModel)), m_verticalSpeed(-0.01f), m_horizontalSpeed(0)
 {
-    auto matValue = this->renderModel->getValue();
+    auto matValue = m_renderModel->getValue();
     setPosition(matValue);
 }
 
 void Ball::update()
 {
-    MatrixValue matVal = renderModel->getValue();
+    MatrixValue matVal = m_renderModel->getValue();
     matVal.a += m_horizontalSpeed;
     matVal.b += m_verticalSpeed;
-    this->model = glm::mat4(1.f);
-    this->model = glm::translate(this->model, glm::vec3(matVal.a, matVal.b, matVal.c));
-    this->model = glm::scale(this->model, glm::vec3(matVal.sx, matVal.sy, matVal.sz));
-    renderModel->setValue(matVal);
+    setPosition(matVal);
 }
 
 void Ball::setSpeed(float horizontalSpeed, float verticalSpeed)
 {
-    this->m_horizontalSpeed = horizontalSpeed;
-    this->m_verticalSpeed   = verticalSpeed;
+    m_horizontalSpeed = horizontalSpeed;
+    m_verticalSpeed   = verticalSpeed;
 }

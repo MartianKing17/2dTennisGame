@@ -6,143 +6,120 @@
 #include "GemulingEngine/include/GLWindow.h"
 #include "../include/mainloop.h"
 
-using namespace std;
-using namespace chrono;
-
-bool handlerEvent(std::unique_ptr<Ball> &ball, std::unique_ptr<Platform> &platform, std::list<std::shared_ptr<Block>> &blocks)
+glm::mat4 getMatrix(const std::shared_ptr<BaseGameObject> &object)
 {
-    struct Coordinate
-    {
-        float leftX, rightX;
-        float topY, bottomY;
-    };
+    float x{}, y{}, a{}, b{}, value = -1.f;
+    glm::mat4 position = object->getPosition();
+    x = position[0].x;
+    y = position[0].y;
+    a = position[3].x;
+    b = position[3].y;
 
-    // Function for ball-platform interactive event
-
-    auto ballPlatInterEvent = [](std::unique_ptr<Ball> &ball, std::unique_ptr<Platform> &platform)
-    {
-        float cx, cy, radius; // Ball center x and center y and radius
-        glm::mat4 matCoor{};
-        Coordinate ballCoor{}, platformCoor{};
-        matCoor = ball->getPosition();
-        cx = ((-matCoor[0][0] + matCoor[3][0]) + matCoor[0][0] + matCoor[3][0])/2.f;
-        cy = ((-matCoor[1][1] + matCoor[3][1]) + matCoor[1][1] + matCoor[3][1])/2.f;
-        radius = matCoor[0][0];
-        ballCoor.leftX = cx - radius;
-        ballCoor.rightX = cx + radius;
-        ballCoor.topY = cy + radius;
-        ballCoor.bottomY = cy - radius;
-        matCoor = platform->getPosition();
-        cx = ((-matCoor[0][0] + matCoor[3][0]) + matCoor[0][0] + matCoor[3][0])/2.f;
-        cy = ((-matCoor[1][1] + matCoor[3][1]) + matCoor[1][1] + matCoor[3][1])/2.f;
-        radius = matCoor[0][0];
-        platformCoor.leftX = cx - radius + 0.03f;
-        platformCoor.rightX = cx + radius - 0.03f;
-        platformCoor.topY = cy + radius - 0.18f;
-        platformCoor.bottomY = cy - radius + 0.17f;
-
-        const float ellipse = 0.000001;
-
-        if (std::abs(platformCoor.topY - ballCoor.bottomY) < ellipse) {
-            if (ballCoor.leftX > platformCoor.leftX && ballCoor.rightX < platformCoor.rightX) {
-                ball->setSpeed(0, 0.01f);
-            }
-        }
-
-        return true;
-    };
-
-
-    // Function for ball-block interactive event
-    auto blockBallInterEvent = [](std::unique_ptr<Ball> &ball, std::list<std::shared_ptr<Block>> &blocks)
-    {
-        float cx{}, cy{}, radius{};
-        glm::mat4 matCoor{};
-        Coordinate ballCoor{}, blockCoor{};
-        matCoor = ball->getPosition();
-        cx = ((-matCoor[0][0] + matCoor[3][0]) + matCoor[0][0] + matCoor[3][0])/2.f;
-        cy = ((-matCoor[1][1] + matCoor[3][1]) + matCoor[1][1] + matCoor[3][1])/2.f;
-        radius = matCoor[0][0];
-        ballCoor.leftX = cx - radius;
-        ballCoor.rightX = cx + radius;
-        ballCoor.topY = cy + radius;
-        ballCoor.bottomY = cy - radius;
-
-        for (auto it = blocks.begin(); it != blocks.end();++it) {
-            matCoor = it->get()->getPosition();
-            cx = ((-matCoor[0][0] + matCoor[3][0]) + matCoor[0][0] + matCoor[3][0])/2.f;
-            cy = ((-matCoor[1][1] + matCoor[3][1]) + matCoor[1][1] + matCoor[3][1])/2.f;
-            radius = matCoor[0][0];
-            blockCoor.leftX = cx - 0.075;
-            blockCoor.rightX = cx + 0.075;
-            blockCoor.topY = cy + 0.05;
-            blockCoor.bottomY = cy - 0.05;
-
-            const float ellipse = 0.001;
-            if (std::abs(ballCoor.topY - blockCoor.bottomY) < ellipse) {
-                if (ballCoor.leftX > blockCoor.leftX && ballCoor.rightX < blockCoor.rightX) {
-                    ball->setSpeed(0, -0.01f);
-                    it = blocks.erase(it);
-                }
-            }
-        }
-
-    };
-
-
-    // Checking if the ball is in the game zone
-
-    auto checkBallGameZone = [](std::unique_ptr<Ball> &ball)->bool
-    {
-        float cx{}, cy{}, radius{};
-        glm::mat4 matCoor{};
-        Coordinate ballCoor{};
-        matCoor = ball->getPosition();
-        cx = ((-matCoor[0][0] + matCoor[3][0]) + matCoor[0][0] + matCoor[3][0])/2.f;
-        cy = ((-matCoor[1][1] + matCoor[3][1]) + matCoor[1][1] + matCoor[3][1])/2.f;
-        radius = matCoor[0][0];
-        ballCoor.leftX = cx - radius;
-        ballCoor.rightX = cx + radius;
-        ballCoor.topY = cy + radius;
-        ballCoor.bottomY = cy - radius;
-
-        const float ellipse = 0.001;
-
-        // If ball was fall out from game zone
-
-        if (ballCoor.topY < -1.2f) {
-            return false;
-        } else if (std::abs(ballCoor.leftX + 1.f) < ellipse) {
-            ball->setSpeed(0.01f, -0.01f);
-        } else if (std::abs(ballCoor.rightX - 1.f) < ellipse) {
-            ball->setSpeed(-0.01f, 0.01f);
-        } else if (std::abs(ballCoor.topY - 1.f) < ellipse) {
-            ball->setSpeed(-0.01f, -0.01f);
-        }
-
-        return true;
-    };
-
-    bool ballIsFall = checkBallGameZone(ball);
-    ballPlatInterEvent(ball, platform);
-    blockBallInterEvent(ball, blocks);
-    return ballIsFall;
-}
-
-bool update(std::unique_ptr<Ball> &ball, std::unique_ptr<Platform> &platform, std::list<std::shared_ptr<Block>> &blocks)
-{
-    ball->update();
-    platform->update();
-
-    for(const auto &it : blocks) {
-        it->update();
+    for (size_t index = 0; index < 4; ++index) {
+        position[index].x = x * value + a;
+        value *= -1.f;
     }
 
-    return handlerEvent(ball, platform, blocks);
+    value = 1.f;
+
+    for (size_t index = 0; index < 4; ++index) {
+        position[index].y = y * value + b;
+
+        if (!(index + 1 % 2)) {
+            value *= -1.f;
+        }
+    }
+
+    return position;
 }
 
-void render(unique_ptr<Window> &window, std::unique_ptr<Ball> &ball, std::unique_ptr<Platform> &platform,
-            std::list<std::shared_ptr<Block>> &blocks)
+bool handlerEvent(const std::shared_ptr<Ball> &ball, const std::shared_ptr<Platform> &platform, std::list<std::shared_ptr<Block>> &blocks)
+{
+    const float value = 0.0005;
+    static float a{};
+    float verticalSpeed = 0.015f;
+    const float ellipse = 0.0525;
+    ball->update();
+    glm::mat4 ballPosition = getMatrix(std::static_pointer_cast<BaseGameObject>(ball));
+    glm::mat4 platformPosition = getMatrix(std::static_pointer_cast<BaseGameObject>(platform));
+    glm::mat4 blockPosition{};
+
+    if (std::abs(ballPosition[2].y - platformPosition[0].y) < ellipse) {
+        if (ballPosition[2].x >= platformPosition[0].x && ballPosition[3].x <= platformPosition[1].x) {
+            a = -a + value;
+            ball->setSpeed(a, verticalSpeed);
+        }
+    }
+
+    if (std::abs(ballPosition[0].y + 1.2f) < ellipse) {
+        return false;
+    } else if (std::abs(ballPosition[0].x - 0.95f) < ellipse) {
+        a = -a + value;
+        verticalSpeed = std::abs(verticalSpeed);
+        ball->setSpeed(a, verticalSpeed);
+    } else if (std::abs(ballPosition[1].x + 0.95f) < ellipse) {
+        a = -a + value;
+        verticalSpeed = -std::abs(verticalSpeed);
+        ball->setSpeed(a, verticalSpeed);
+    } else if (std::abs(ballPosition[0].y - 0.98f) < ellipse) {
+        a = -a + value;
+        verticalSpeed = -std::abs(verticalSpeed);
+        ball->setSpeed(a, verticalSpeed);
+    }
+
+    for (auto it = blocks.begin(); it != blocks.end();++it) {
+        blockPosition = getMatrix(std::static_pointer_cast<BaseGameObject>(*it));
+
+        if (std::abs(ballPosition[2].y - blockPosition[0].y) < ellipse) {
+            if (ballPosition[2].x >= blockPosition[0].x && ballPosition[3].x <= blockPosition[1].x) {
+                a = -a + value;
+                verticalSpeed = -verticalSpeed;
+                ball->setSpeed(a, verticalSpeed);
+                it = blocks.erase(it);
+            }
+        } else if (std::abs(blockPosition[2].y - ballPosition[0].y) < ellipse) {
+            if (blockPosition[2].x >= ballPosition[0].x && blockPosition[3].x <= ballPosition[1].x) {
+                a = -a + value;
+                verticalSpeed = -verticalSpeed;
+                ball->setSpeed(a, verticalSpeed);
+                it = blocks.erase(it);
+            }
+        } else if (blockPosition[1].y >= ballPosition[0].y && ballPosition[0].y >= blockPosition[3].y) {
+            if (std::abs(blockPosition[1].x - ballPosition[0].x) < ellipse) {
+                a = -a + value;
+                verticalSpeed = -verticalSpeed;
+                ball->setSpeed(a, verticalSpeed);
+                it = blocks.erase(it);
+            }
+        } else if (blockPosition[1].y >= ballPosition[2].y && ballPosition[2].y >= blockPosition[3].y) {
+            if (std::abs(blockPosition[1].x - ballPosition[2].x) < ellipse) {
+                a = -a + value;
+                verticalSpeed = -verticalSpeed;
+                ball->setSpeed(a, verticalSpeed);
+                it = blocks.erase(it);
+            }
+        } else if (blockPosition[0].y >= ballPosition[1].y && ballPosition[1].y >= blockPosition[2].y) {
+            if (std::abs(blockPosition[0].x - ballPosition[1].x) < ellipse) {
+                a = -a + value;
+                verticalSpeed = -verticalSpeed;
+                ball->setSpeed(a, verticalSpeed);
+                it = blocks.erase(it);
+            }
+        } else if (blockPosition[0].y >= ballPosition[3].y && ballPosition[3].y >= blockPosition[2].y) {
+            if (std::abs(blockPosition[0].x - ballPosition[3].x) < ellipse) {
+                a = -a + value;
+                verticalSpeed = -verticalSpeed;
+                ball->setSpeed(a, verticalSpeed);
+                it = blocks.erase(it);
+            }
+        }
+    }
+
+    return true;
+}
+
+void render(const std::unique_ptr<Window> &window, const std::shared_ptr<Ball> &ball, const std::shared_ptr<Platform> &platform,
+            const std::list<std::shared_ptr<Block>> &blocks)
 {
     window->clear();
 
@@ -154,17 +131,17 @@ void render(unique_ptr<Window> &window, std::unique_ptr<Ball> &ball, std::unique
     platform->render();
 }
 
-int mainloop(std::unique_ptr<Ball> &ball, std::unique_ptr<Platform> &platform, std::list<std::shared_ptr<Block>> &blocks,
-             unique_ptr<Window> &window, bool &isSpaceActive)
+int mainloop(std::shared_ptr<Ball> &ball, std::shared_ptr<Platform> &platform, std::list<std::shared_ptr<Block>> &blocks,
+             std::unique_ptr<Window> &window, bool &isSpaceActive, short *motion)
 {
     GLWindow * glWindow = dynamic_cast<GLWindow*>(window.get());
     glm::mat4 model=glm::mat4(1.f);
     double delta_time{};
-    system_clock::time_point timer = system_clock::now();
+    std::chrono::system_clock::time_point timer = std::chrono::system_clock::now();
 
     while (!glfwWindowShouldClose(glWindow->get())) {
         glfwPollEvents();
-        delta_time = duration_cast<milliseconds>(system_clock::now() - timer).count();
+        delta_time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - timer).count();
 
         if(delta_time < 16) {
             continue;
@@ -173,14 +150,20 @@ int mainloop(std::unique_ptr<Ball> &ball, std::unique_ptr<Platform> &platform, s
         render(window, ball, platform, blocks);
 
         if(!isSpaceActive) {
-            timer = system_clock::now();
+            timer = std::chrono::system_clock::now();
             glfwSwapBuffers(glWindow->get());
             continue;
         } else if (blocks.empty()) {
             return 1;
         }
 
-        if (!update(ball, platform, blocks)) {
+        if (*motion < 0) {
+            platform->move(-0.02f);
+        } else if (*motion > 0) {
+            platform->move(0.02f);
+        }
+
+        if (!handlerEvent(ball, platform, blocks)) {
             MatrixValue matrixValue{0., 0., 1., 0.03, 0.03, 0.};
             ball->setPosition(matrixValue);
             ball->setSpeed(0, -0.01f);
@@ -189,7 +172,7 @@ int mainloop(std::unique_ptr<Ball> &ball, std::unique_ptr<Platform> &platform, s
             isSpaceActive = false;
         }
 
-        timer = system_clock::now();
+        timer = std::chrono::system_clock::now();
         glfwSwapBuffers(glWindow->get());
     }
 

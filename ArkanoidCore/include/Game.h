@@ -7,17 +7,32 @@
 
 #include <vector>
 #include <string>
+#include <list>
+#include <memory>
+#include "Ball.h"
+#include "Platform.h"
+#include "Block.h"
+#include "../GemulingEngine/include/Window.h"
 
 class Game
 {
 public:
-    Game() = default;
-    bool startSinglePlay();
-    void settingMenu();
-    ~Game();
+    Game();
+    unsigned int startSinglePlay();
+    void setLevel(unsigned int level);
+    void setWindowMode(std::string mode);
+    std::string getWindowMode();
+    unsigned int getMaxLevel();
+    void writeData();
+    ~Game() = default;
 private:
-    unsigned int m_availableMaxLevel;
-    static std::vector<std::string> getClearDataFromFile();
+    std::string m_windowMode;
+    unsigned int m_level;
+    unsigned int m_maxLevel;
+    std::shared_ptr<Ball> m_ball;
+    std::shared_ptr<Platform> m_platform;
+    std::list<std::shared_ptr<Block>> m_blocks;
+    void getClearDataFromFile();
 };
 
 

@@ -1,7 +1,13 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>arkanoid-ico.ico</file>
-        <file>arkanoid_background.png</file>
+        <file>StartMenu.qml</file>
+        <file>LevelMenu.qml</file>
+        <file>ImageButton.qml</file>
+        <file>LevelWarningPopup.qml</file>
+        <file>SettingMenu.qml</file>
+        <file>ControlBar.qml</file>
+        <file>Message.qml</file>
+        <file>picture</file>
     </qresource>
 </RCC>

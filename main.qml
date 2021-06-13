@@ -3,184 +3,130 @@ import QtQuick.Window 2.10
 import QtQuick.Controls 2.10
 import Game 1.0
 
-Window {
-    id: mainWindow
+Window
+{
+    id: _window
     visible: true
-    width: 600
-    height: 450
+    width: 800
+    height: 640
+    title: qsTr("Arkanoid")
 
-    property int buttonNum: 3
-    property int margleft: buttonWidth / 10
-    property int buttonWidth: mainWindow.width / 3.5
-    property int buttonHeight: mainWindow.height / 9
-    property int margleTop: mainWindow.height / 40
-
-    function f()
+    Game
     {
-        var val = buttonHeight * buttonNum + margleTop * (buttonNum-1)
-        val = mainWindow.height - val
-        val /= 2
-        val = mainWindow.height / val
-        return val
+        id: _game
+        property int maximumLevel: getLevel();
+        onMaxLevelChanged:
+        {
+            maximumLevel = _game.getLevel();
+            _msg.text = "You win! Level " + _game.level + " was enable!";
+            _msg.visible = true;
+        }
     }
 
     Image
     {
         id: background
         anchors.fill: parent
-        source: "arkanoid_background.png"
+        source: "picture/arkanoid_background.png"
     }
 
-    Game
+    Message
     {
-        id: game
+        id: _msg
+        z: 1
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.topMargin: parent.height / 4
+        anchors.leftMargin: parent.width / 4
+        width: parent.width / 2
+        height: parent.height / 2
+        visible: false
+        radius: 32
+        onCloseClick: { _msg.visible = false; }
+        onNextClick:
+        {
+            _picker.level = _picker.level + 1;
+            _msg.visible = false;
+            _picker.clicked();
+        }
     }
 
-    Button {
-        id: singlePlayButton
-        text: qsTr("Single Play")
-        onClicked: {
-            mainWindow.hide()
-            if(game.startSinglePlay()) {
-                mainWindow.show()
-            } else {
-                mainWindow.close()
+    SettingMenu
+    {
+        id: _setting
+        visible: false
+        anchors.left: parent.left
+        anchors.top: _bar.bottom
+        width: parent.width
+        height: parent.height
+        setter: _game
+        mode: _game.getWindowMode()
+    }
+
+    ControlBar
+    {
+        id: _bar
+        visible: _setting.visible || _picker.visible
+        anchors.left: parent.left
+        anchors.top: parent.top
+        width: parent.width
+        height: parent.height * 0.1
+        onClicked:
+        {
+            if (_setting.visible) {
+                _menu.visible = true;
+                _setting.visible = false;
+            }
+
+            if (_picker.visible) {
+                _picker.visible = false;
+                _menu.visible = true;
             }
         }
+    }
 
-        width: buttonWidth
-        height: buttonHeight
-        anchors.top: parent.top
-        anchors.topMargin: parent.height / f()
-        anchors.left: parent.left
-        anchors.leftMargin: margleft
+    StartMenu
+    {
+        id: _menu
+        visible: true
+        anchors.fill: parent
 
-        contentItem: Text {
-
-            text: parent.text
-
-            font: parent.font
-
-            opacity: enabled ? 1.0 : 0.3
-
-            color: parent.down ? "#FA8072" : "#000000"
-
-            horizontalAlignment: Text.AlignHCenter
-
-            verticalAlignment: Text.AlignVCenter
-
-            elide: Text.ElideRight
+        onStartClicked:
+        {
+            _picker.visible = true;
+            _menu.visible = false;
         }
 
-        background: Rectangle {
-
-            implicitWidth: buttonWidth
-
-            implicitHeight: buttonHeight
-
-            opacity: 0.5
-
-            border.color: parent.down ? "#FA8072" : "#000000"
-
-            border.width: 1
-
-            radius: (buttonWidth - buttonHeight) / 16
+        onSettingClicked:
+        {
+            _setting.visible = true;
+            _menu.visible = false;
         }
     }
 
-    Button {
-        id: achievementButton
-        text: "Achievement"
-        onClicked: gameEvent.achievementPage()
-
-        width: buttonWidth
-        height: buttonHeight
-        anchors.top: singlePlayButton.bottom
-        anchors.topMargin: margleTop
+    LevelMenu
+    {
+        id: _picker
+        visible: false
+        anchors.top: _bar.bottom
         anchors.left: parent.left
-        anchors.leftMargin:  margleft
+        width: parent.width
+        height: parent.height
+        model: 32
+        maxLevel: _game.maximumLevel
 
-        contentItem: Text {
+        onClicked:
+        {
+           _game.level = _picker.level;
+           _window.hide();
 
-            text: parent.text
-
-            font: parent.font
-
-            opacity: enabled ? 1.0 : 0.3
-
-            color: parent.down ? "#FA8072" : "#000000"
-
-            horizontalAlignment: Text.AlignHCenter
-
-            verticalAlignment: Text.AlignVCenter
-
-            elide: Text.ElideRight
-
-        }
-
-        background: Rectangle {
-
-            implicitWidth: buttonWidth
-
-            implicitHeight: buttonHeight
-
-            opacity: 0.5
-
-            border.color: parent.down ? "#FA8072" : "#000000"
-
-            border.width: 1
-
-            radius: (buttonWidth - buttonHeight)/16
-        }
-
+           if (_game.startSinglePlay() == 0) {
+               _window.show();
+           } else {
+               _window.close();
+           }
+       }
     }
 
-    Button {
-        id: settingButton
-        text: "Setting"
-        onClicked: gameEvent.settingMenu()
-
-        width: buttonWidth
-        height: buttonHeight
-        anchors.top: achievementButton.bottom
-        anchors.topMargin: margleTop
-        anchors.left: parent.left
-        anchors.leftMargin:  margleft
-
-        contentItem: Text {
-
-            text: parent.text
-
-            font: parent.font
-
-            opacity: enabled ? 1.0 : 0.3
-
-            color: parent.down ? "#FA8072" : "#000000"
-
-            horizontalAlignment: Text.AlignHCenter
-
-            verticalAlignment: Text.AlignVCenter
-
-            elide: Text.ElideRight
-
-        }
-
-        background: Rectangle {
-
-            implicitWidth: buttonWidth
-
-            implicitHeight: buttonHeight
-
-            opacity: 0.5
-
-            border.color: parent.down ? "#FA8072" : "#000000"
-
-            border.width: 1
-
-            radius: (buttonWidth - buttonHeight)/16
-        }
-
-    }
-
-    title: qsTr("Arkanoid")
+    onClosing: { _game.writeData(); }
 }

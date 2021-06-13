@@ -4,51 +4,23 @@
 
 #include "../include/Platform.h"
 
-Platform::Platform(Render * renderModel, short * platformMotion)
-        : BaseGameObject(renderModel), m_platformMotion(platformMotion),
-          m_left(0.), m_right(0.), m_bottom(0.), m_top(0.)
+
+Platform::Platform(std::unique_ptr<Render> &&renderModel, short * platformMotion)
+        : BaseGameObject(std::move(renderModel)), m_platformMotion(platformMotion)
 {
-    auto matValue = this->renderModel->getValue();
+    auto matValue = this->m_renderModel->getValue();
     setPosition(matValue);
-    this->m_left = this->m_right = this->radius / 5;
-    this->m_top = this->m_bottom = this->radius / 5;
 }
 
-float Platform::getTop()
-{
-    return getVerticalPlace() + this->m_top;
-}
-
-float Platform::getBottom()
-{
-    return getVerticalPlace() - this->m_bottom;
-}
-
-float Platform::getLeft()
-{
-    return getGorizontalPlace() - this->radius + m_left;
-}
-
-float Platform::getRight()
-{
-    return getGorizontalPlace() + this->radius - m_right;
-}
-
-void Platform::update()
+void Platform::move(const float a)
 {
     const float ot = 0.0001f;
-    MatrixValue matVal = renderModel->getValue();
+    MatrixValue matVal = m_renderModel->getValue();
 
-    if (((*m_platformMotion == -1) && std::abs(1.f - this->model[0][0] + this->model[3][0]) > ot)) {
-        matVal.a += -0.02f;
+    if ((std::abs(1.f - this->m_model[0][0] + this->m_model[3][0]) > ot && a < 0)
+    ||   std::abs(this->m_model[0][0] + this->m_model[3][0] - 1.f) > ot && a > 0) {
+        matVal.a += a;
     }
 
-    if (((*m_platformMotion == 1) && std::abs(this->model[0][0] + this->model[3][0] - 1.f) > ot)) {
-        matVal.a += 0.02f;
-    }
-
-    this->model = glm::mat4(1.f);
-    this->model = glm::translate(this->model, glm::vec3(matVal.a, matVal.b, matVal.c));
-    this->model = glm::scale(this->model, glm::vec3(matVal.sx, matVal.sy, matVal.sz));
-    renderModel->setValue(matVal);
+    setPosition(matVal);
 }

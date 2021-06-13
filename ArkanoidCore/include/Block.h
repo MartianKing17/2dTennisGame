@@ -10,8 +10,7 @@
 class Block : public BaseGameObject
 {
 public:
-    explicit Block(Render *renderModel);
-    void update() override;
+    explicit Block(std::unique_ptr<Render> &&renderModel);
     ~Block() override = default;
 };
 

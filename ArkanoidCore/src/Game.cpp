@@ -3,13 +3,10 @@
 //
 
 #include "../include/Game.h"
-#include "GemulingEngine/include/Window.h"
 #include "GemulingEngine/include/GLWindow.h"
 #include "../include/init.h"
 #include "../include/mainloop.h"
-#include <memory>
 #include <array>
-#include <list>
 
 short platformMotion = 0;
 bool isSpaceButtonPress = false;
@@ -48,22 +45,22 @@ void resize (GLFWwindow * window,int width, int height)
     glViewport(0, 0, width, height);
 }
 
-bool Game::startSinglePlay()
+Game::Game()
+    : m_ball{}, m_platform{}, m_blocks{}, m_windowMode(""), m_level(1)
+{
+    getClearDataFromFile();
+}
+
+unsigned int Game::startSinglePlay()
 {
     int returnCode = 1;
     const std::string name = "Arkanoid";
     std::unique_ptr<Window> window;
-    std::unique_ptr<Ball> ball;
-    std::unique_ptr<Platform> platform;
-    std::list<std::shared_ptr<Block>> blocks{};
-    std::vector<std::string> fileData;
 
     try {
-        fileData = getClearDataFromFile();
-        window = fileData.at(0) == "full" ? std::make_unique<GLWindow>(name, true) : std::make_unique<GLWindow>(name);
-        m_availableMaxLevel = std::stoi(fileData.at(1));
-        ball = makeBall();
-        platform = makePlatform(&platformMotion);
+        window = m_windowMode == "full" ? std::make_unique<GLWindow>(name, true) : std::make_unique<GLWindow>(name);
+        m_ball = makeBall();
+        m_platform = makePlatform(&platformMotion);
     } catch (const std::runtime_error& e) {
         window->terminate();
         throw e;
@@ -75,27 +72,42 @@ bool Game::startSinglePlay()
 
     while (returnCode) {
         try {
-            makeBlock("levels/level_" + std::to_string(m_availableMaxLevel) + ".dat", blocks);
-            returnCode = mainloop(ball, platform, blocks, window, isSpaceButtonPress);
+            makeBlock("levels/level_" + std::to_string(m_level) + ".dat", m_blocks);
+            returnCode = mainloop(m_ball, m_platform, m_blocks, window, isSpaceButtonPress, &platformMotion);
         } catch(const std::runtime_error &e) {
             window->terminate();
             throw e;
         }
 
-        if (returnCode) {
-            MatrixValue matrixValue{0., 0., 1., 0.03, 0.03, 0.};
-            ball->setPosition(matrixValue);
-            matrixValue = {0., -0.75, 1., 0.2, 0.2, 0.};
-            platform->setPosition(matrixValue);
+        if (m_blocks.empty()) {
+            returnCode = 2;
+            break;
         }
     }
 
-    return true;
+    if (returnCode == 2 && m_maxLevel == m_level) {
+        ++m_maxLevel;
+    }
+
+    m_ball.reset();
+    m_platform.reset();
+    m_blocks.clear();
+    isSpaceButtonPress = false;
+    return returnCode;
 }
 
-std::vector<std::string> Game::getClearDataFromFile()
+void Game::setLevel(unsigned int level)
 {
-    std::vector<std::string> data{};
+    m_level = level;
+}
+
+unsigned int Game::getMaxLevel()
+{
+    return m_maxLevel;
+}
+
+void Game::getClearDataFromFile()
+{
     std::ifstream read("path/setting.dat");
     std::string src{};
 
@@ -104,8 +116,7 @@ std::vector<std::string> Game::getClearDataFromFile()
     }
 
     read >> src;
-    src = src.substr(src.find(':') + 1, src.size() - 1);
-    data.push_back(src);
+    m_windowMode = src.substr(src.find(':') + 1, src.size() - 1);
     src.clear();
     read.close();
     read.open("path/save.dat");
@@ -116,13 +127,41 @@ std::vector<std::string> Game::getClearDataFromFile()
 
     read >> src;
     src = src.substr(src.find(':') + 1, src.size() - 1);
-    data.push_back(src);
-    return data;
+    m_maxLevel = std::stoi(src);
 }
 
-void Game::settingMenu()
+void Game::setWindowMode(std::string mode)
 {
-    return;
+    m_windowMode = mode;
 }
 
-Game::~Game(){}
+std::string Game::getWindowMode()
+{
+    return m_windowMode;
+}
+
+void Game::writeData()
+{
+    std::string filename = "path/setting.dat";
+    std::ofstream write{};
+    write.open(filename);
+
+    if (!write.is_open()) {
+        throw std::runtime_error("Cannot saved data to file");
+    }
+
+    write.clear();
+    write << "monitor:" << m_windowMode << std::endl;
+    write.close();
+
+    filename = "path/save.dat";
+    write.open(filename);
+
+    if (!write.is_open()) {
+        throw std::runtime_error("Cannot saved data to file");
+    }
+
+    write.clear();
+    write << "score:" + std::to_string(m_maxLevel) << std::endl;
+    write.close();
+}

@@ -4,17 +4,9 @@
 
 #include "../include/Block.h"
 
-Block::Block(Render *renderModel)
-        : BaseGameObject(renderModel)
+Block::Block(std::unique_ptr<Render> &&renderModel)
+        : BaseGameObject(std::move(renderModel))
 {
-    auto matValue = this->renderModel->getValue();
+    auto matValue = m_renderModel->getValue();
     setPosition(matValue);
-}
-
-void Block::update()
-{
-    MatrixValue matVal = renderModel->getValue();
-    this->model = glm::mat4(1.f);
-    this->model = glm::translate(this->model, glm::vec3(matVal.a, matVal.b, matVal.c));
-    this->model = glm::scale(this->model, glm::vec3(matVal.sx, matVal.sy, matVal.sz));
 }

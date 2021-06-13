@@ -143,7 +143,7 @@ void makeBlock(const std::string& lvlFilename, std::list<std::shared_ptr<Block>>
         directRender->makeShader(shaderVS, shaderFragment);
         directRender->setValues(matrixValue);
         render = make_unique<GLRender>(directRender.release(), worldView);
-        block = std::make_shared<Block>(render.release());
+        block = std::make_shared<Block>(std::move(render));
         blocks.push_back(block);
     }
 }
@@ -174,7 +174,7 @@ std::unique_ptr<Ball> makeBall()
     directRender->makeShader(shaderVS, shaderFragment);
     directRender->setValues(matrixValue);
     render = make_unique<GLRender>(directRender.release(), worldView);
-    return std::make_unique<Ball>(render.release());
+    return std::make_unique<Ball>(std::move(render));
 }
 
 std::unique_ptr<Platform> makePlatform(short *platformMotion)
@@ -203,5 +203,5 @@ std::unique_ptr<Platform> makePlatform(short *platformMotion)
     directRender->makeShader(shaderVS, shaderFragment);
     directRender->setValues(matrixValue);
     render = make_unique<GLRender>(directRender.release(), worldView);
-    return std::make_unique<Platform>(render.release(), platformMotion);
+    return std::make_unique<Platform>(std::move(render), platformMotion);
 }
